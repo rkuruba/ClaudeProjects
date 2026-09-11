@@ -1,0 +1,55 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`vehicle > 42 > bicycle 1`] = `"Fitness Bicycle"`;
+
+exports[`vehicle > 42 > color 1`] = `"lime"`;
+
+exports[`vehicle > 42 > fuel 1`] = `"Electric"`;
+
+exports[`vehicle > 42 > manufacturer 1`] = `"Jeep"`;
+
+exports[`vehicle > 42 > model 1`] = `"Durango"`;
+
+exports[`vehicle > 42 > type 1`] = `"Extended Cab Pickup"`;
+
+exports[`vehicle > 42 > vehicle 1`] = `"Jeep Wrangler"`;
+
+exports[`vehicle > 42 > vin 1`] = `"CYRK551V7PAZ82113"`;
+
+exports[`vehicle > 42 > vrm 1`] = `"JY75EEB"`;
+
+exports[`vehicle > 1211 > bicycle 1`] = `"Triathlon/Time Trial Bicycle"`;
+
+exports[`vehicle > 1211 > color 1`] = `"violet"`;
+
+exports[`vehicle > 1211 > fuel 1`] = `"Hybrid"`;
+
+exports[`vehicle > 1211 > manufacturer 1`] = `"Toyota"`;
+
+exports[`vehicle > 1211 > model 1`] = `"V90"`;
+
+exports[`vehicle > 1211 > type 1`] = `"Wagon"`;
+
+exports[`vehicle > 1211 > vehicle 1`] = `"Toyota Spyder"`;
+
+exports[`vehicle > 1211 > vin 1`] = `"XW7ZNNSB8TUM84882"`;
+
+exports[`vehicle > 1211 > vrm 1`] = `"YX29RRT"`;
+
+exports[`vehicle > 1337 > bicycle 1`] = `"Cyclocross Bicycle"`;
+
+exports[`vehicle > 1337 > color 1`] = `"indigo"`;
+
+exports[`vehicle > 1337 > fuel 1`] = `"Electric"`;
+
+exports[`vehicle > 1337 > manufacturer 1`] = `"Fiat"`;
+
+exports[`vehicle > 1337 > model 1`] = `"Challenger"`;
+
+exports[`vehicle > 1337 > type 1`] = `"Coupe"`;
+
+exports[`vehicle > 1337 > vehicle 1`] = `"Fiat Aventador"`;
+
+exports[`vehicle > 1337 > vin 1`] = `"859FAH8Z23JL19477"`;
+
+exports[`vehicle > 1337 > vrm 1`] = `"GE24ING"`;

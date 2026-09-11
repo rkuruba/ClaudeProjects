@@ -1,0 +1,178 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`color > 42 > cmyk 1`] = `
+[
+  0.37,
+  0.96,
+  0.73,
+  0.6,
+]
+`;
+
+exports[`color > 42 > colorByCSSColorSpace 1`] = `
+[
+  0.3745,
+  0.9508,
+  0.732,
+]
+`;
+
+exports[`color > 42 > cssSupportedFunction 1`] = `"hsla"`;
+
+exports[`color > 42 > cssSupportedSpace 1`] = `"display-p3"`;
+
+exports[`color > 42 > hsl 1`] = `
+[
+  135,
+  0.96,
+  0.73,
+]
+`;
+
+exports[`color > 42 > human 1`] = `"lime"`;
+
+exports[`color > 42 > hwb 1`] = `
+[
+  135,
+  0.96,
+  0.73,
+]
+`;
+
+exports[`color > 42 > lab 1`] = `
+[
+  0.37454,
+  90.1429,
+  46.3988,
+]
+`;
+
+exports[`color > 42 > lch 1`] = `
+[
+  0.37454,
+  218.7,
+  263.5,
+]
+`;
+
+exports[`color > 42 > rgb 1`] = `"#8ead33"`;
+
+exports[`color > 42 > space 1`] = `"HSLA"`;
+
+exports[`color > 1211 > cmyk 1`] = `
+[
+  0.93,
+  0.9,
+  0.22,
+  1,
+]
+`;
+
+exports[`color > 1211 > colorByCSSColorSpace 1`] = `
+[
+  0.9286,
+  0.8935,
+  0.2255,
+]
+`;
+
+exports[`color > 1211 > cssSupportedFunction 1`] = `"color"`;
+
+exports[`color > 1211 > cssSupportedSpace 1`] = `"prophoto-rgb"`;
+
+exports[`color > 1211 > hsl 1`] = `
+[
+  335,
+  0.9,
+  0.22,
+]
+`;
+
+exports[`color > 1211 > human 1`] = `"violet"`;
+
+exports[`color > 1211 > hwb 1`] = `
+[
+  335,
+  0.9,
+  0.22,
+]
+`;
+
+exports[`color > 1211 > lab 1`] = `
+[
+  0.928521,
+  78.6944,
+  -54.8859,
+]
+`;
+
+exports[`color > 1211 > lch 1`] = `
+[
+  0.928521,
+  205.5,
+  81.2,
+]
+`;
+
+exports[`color > 1211 > rgb 1`] = `"#ed4fef"`;
+
+exports[`color > 1211 > space 1`] = `"sYCC"`;
+
+exports[`color > 1337 > cmyk 1`] = `
+[
+  0.26,
+  0.16,
+  0.28,
+  0.46,
+]
+`;
+
+exports[`color > 1337 > colorByCSSColorSpace 1`] = `
+[
+  0.262,
+  0.1586,
+  0.2781,
+]
+`;
+
+exports[`color > 1337 > cssSupportedFunction 1`] = `"hsl"`;
+
+exports[`color > 1337 > cssSupportedSpace 1`] = `"display-p3"`;
+
+exports[`color > 1337 > hsl 1`] = `
+[
+  94,
+  0.16,
+  0.28,
+]
+`;
+
+exports[`color > 1337 > human 1`] = `"indigo"`;
+
+exports[`color > 1337 > hwb 1`] = `
+[
+  94,
+  0.16,
+  0.28,
+]
+`;
+
+exports[`color > 1337 > lab 1`] = `
+[
+  0.262024,
+  -68.2632,
+  -44.3747,
+]
+`;
+
+exports[`color > 1337 > lch 1`] = `
+[
+  0.262024,
+  36.5,
+  100.1,
+]
+`;
+
+exports[`color > 1337 > rgb 1`] = `"#536a7b"`;
+
+exports[`color > 1337 > space 1`] = `"DCI-P3"`;

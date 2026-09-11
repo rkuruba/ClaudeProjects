@@ -1,0 +1,22 @@
+body {
+  font-family: -apple-system, Segoe UI, sans-serif;
+  max-width: 640px;
+  margin: 48px auto;
+  padding: 0 16px;
+  color: #1a1a1a;
+}
+h1 { font-size: 1.4rem; }
+.badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #eee;
+  margin-left: 6px;
+}
+form { display: flex; gap: 8px; margin: 16px 0; }
+input { flex: 1; padding: 8px; }
+button { padding: 8px 16px; cursor: pointer; }
+ul { padding-left: 20px; }
+li { margin: 4px 0; }
+#meta { color: #666; font-size: 0.85rem; margin-top: 24px; }

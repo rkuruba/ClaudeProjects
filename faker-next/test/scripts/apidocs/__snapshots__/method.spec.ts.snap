@@ -1,0 +1,2492 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`method > expected and actual methods are equal 1`] = `
+[
+  "complexArrayParameter",
+  "defaultBooleanParamMethod",
+  "functionParamMethod",
+  "literalUnionParamMethod",
+  "methodWithDeprecated",
+  "methodWithDeprecatedOption",
+  "methodWithExample",
+  "methodWithExperimental",
+  "methodWithMultipleExamples",
+  "methodWithMultipleRemarks",
+  "methodWithMultipleSeeMarkers",
+  "methodWithMultipleSeeMarkersAndBackticks",
+  "methodWithMultipleThrows",
+  "methodWithRemark",
+  "methodWithSinceMarker",
+  "methodWithThrows",
+  "multiParamMethod",
+  "noParamMethod",
+  "numberOrRangeParamMethod",
+  "numberRangeParamMethod",
+  "optionalStringParamMethod",
+  "optionsInlineParamMethodWithDefaults",
+  "optionsInterfaceParamMethodWithDefaults",
+  "optionsParamMethod",
+  "optionsTypeParamMethodWithDefaults",
+  "recordParamMethod",
+  "requiredNumberParamMethod",
+  "shadowTypeParamMethod",
+  "stringUnionParamMethod",
+]
+`;
+
+exports[`method > processMethodLike(complexArrayParameter) 1`] = `
+{
+  "name": "complexArrayParameter",
+  "signatures": [
+    {
+      "deprecated": undefined,
+      "description": "Complex array parameter.",
+      "examples": [],
+      "experimental": undefined,
+      "parameters": [
+        {
+          "default": undefined,
+          "description": "The type of the entries to pick from.",
+          "name": "<T>",
+          "type": {
+            "text": "any",
+            "type": "simple",
+          },
+        },
+        {
+          "default": undefined,
+          "description": "Array to pick the value from.",
+          "name": "array",
+          "type": {
+            "text": "Array<{ … }>",
+            "type": "generic",
+            "typeParameters": [
+              {
+                "text": "{ … }",
+                "type": "simple",
+              },
+            ],
+          },
+        },
+        {
+          "default": undefined,
+          "description": "The value to pick.",
+          "name": "array[].value",
+          "type": {
+            "resolvedType": {
+              "text": "any",
+              "type": "simple",
+            },
+            "text": "T",
+            "type": "shadow",
+          },
+        },
+        {
+          "default": undefined,
+          "description": "The weight of the value.",
+          "name": "array[].weight",
+          "type": {
+            "text": "number",
+            "type": "simple",
+          },
+        },
+      ],
+      "remarks": [],
+      "returns": {
+        "resolvedType": {
+          "text": "any",
+          "type": "simple",
+        },
+        "text": "T",
+        "type": "shadow",
+      },
+      "seeAlsos": [],
+      "signature": "function complexArrayParameter<T>(
+    array: ReadonlyArray<{
+      weight: number;
+      value: T;
+    }>
+  ): T;",
+      "since": "1.0.0",
+      "throws": [],
+    },
+  ],
+  "source": {
+    "column": -1,
+    "filePath": "test/scripts/apidocs/method.example.ts",
+    "line": -1,
+  },
+}
+`;
+
+exports[`method > processMethodLike(defaultBooleanParamMethod) 1`] = `
+{
+  "name": "defaultBooleanParamMethod",
+  "signatures": [
+    {
+      "deprecated": undefined,
+      "description": "Test with a default parameter.",
+      "examples": [],
+      "experimental": undefined,
+      "parameters": [
+        {
+          "default": "true",
+          "description": "The boolean parameter.",
+          "name": "c",
+          "type": {
+            "text": "boolean",
+            "type": "simple",
+          },
+        },
+      ],
+      "remarks": [],
+      "returns": {
+        "text": "number",
+        "type": "simple",
+      },
+      "seeAlsos": [],
+      "signature": "function defaultBooleanParamMethod(c: boolean = true): number;",
+      "since": "1.0.0",
+      "throws": [],
+    },
+  ],
+  "source": {
+    "column": -1,
+    "filePath": "test/scripts/apidocs/method.example.ts",
+    "line": -1,
+  },
+}
+`;
+
+exports[`method > processMethodLike(functionParamMethod) 1`] = `
+{
+  "name": "functionParamMethod",
+  "signatures": [
+    {
+      "deprecated": undefined,
+      "description": "Test with a function parameters.",
+      "examples": [],
+      "experimental": undefined,
+      "parameters": [
+        {
+          "default": undefined,
+          "description": "The function parameter.",
+          "name": "fn",
+          "type": {
+            "text": "(a: string) => number",
+            "type": "simple",
+          },
+        },
+      ],
+      "remarks": [],
+      "returns": {
+        "text": "number",
+        "type": "simple",
+      },
+      "seeAlsos": [],
+      "signature": "function functionParamMethod(fn: (a: string) => number): number;",
+      "since": "1.0.0",
+      "throws": [],
+    },
+  ],
+  "source": {
+    "column": -1,
+    "filePath": "test/scripts/apidocs/method.example.ts",
+    "line": -1,
+  },
+}
+`;
+
+exports[`method > processMethodLike(literalUnionParamMethod) 1`] = `
+{
+  "name": "literalUnionParamMethod",
+  "signatures": [
+    {
+      "deprecated": undefined,
+      "description": "Test with LiteralUnion.",
+      "examples": [],
+      "experimental": undefined,
+      "parameters": [
+        {
+          "default": undefined,
+          "description": "\`'a'\` or \`'b'\`.",
+          "name": "value",
+          "type": {
+            "text": "'a' | 'b' | string",
+            "type": "union",
+            "types": [
+              {
+                "text": "'a' | 'b'",
+                "type": "union",
+                "types": [
+                  {
+                    "text": "'a'",
+                    "type": "simple",
+                  },
+                  {
+                    "text": "'b'",
+                    "type": "simple",
+                  },
+                ],
+              },
+              {
+                "text": "string",
+                "type": "simple",
+              },
+            ],
+          },
+        },
+        {
+          "default": undefined,
+          "description": "\`'a'\` or \`'b'\`.",
+          "name": "namedValue",
+          "type": {
+            "text": "AB | string",
+            "type": "union",
+            "types": [
+              {
+                "resolvedType": {
+                  "text": "'a' | 'b'",
+                  "type": "union",
+                  "types": [
+                    {
+                      "text": "'a'",
+                      "type": "simple",
+                    },
+                    {
+                      "text": "'b'",
+                      "type": "simple",
+                    },
+                  ],
+                },
+                "text": "AB",
+                "type": "shadow",
+              },
+              {
+                "text": "string",
+                "type": "simple",
+              },
+            ],
+          },
+        },
+        {
+          "default": undefined,
+          "description": "Array of \`'a'\` or \`'b'\`.",
+          "name": "array",
+          "type": {
+            "text": "Array<'a' | 'b' | string>",
+            "type": "generic",
+            "typeParameters": [
+              {
+                "text": "'a' | 'b' | string",
+                "type": "union",
+                "types": [
+                  {
+                    "text": "'a' | 'b'",
+                    "type": "union",
+                    "types": [
+                      {
+                        "text": "'a'",
+                        "type": "simple",
+                      },
+                      {
+                        "text": "'b'",
+                        "type": "simple",
+                      },
+                    ],
+                  },
+                  {
+                    "text": "string",
+                    "type": "simple",
+                  },
+                ],
+              },
+            ],
+          },
+        },
+        {
+          "default": undefined,
+          "description": "Array of \`'a'\` or \`'b'\`.",
+          "name": "namedArray",
+          "type": {
+            "text": "Array<AB | string>",
+            "type": "generic",
+            "typeParameters": [
+              {
+                "text": "AB | string",
+                "type": "union",
+                "types": [
+                  {
+                    "resolvedType": {
+                      "text": "'a' | 'b'",
+                      "type": "union",
+                      "types": [
+                        {
+                          "text": "'a'",
+                          "type": "simple",
+                        },
+                        {
+                          "text": "'b'",
+                          "type": "simple",
+                        },
+                      ],
+                    },
+                    "text": "AB",
+                    "type": "shadow",
+                  },
+                  {
+                    "text": "string",
+                    "type": "simple",
+                  },
+                ],
+              },
+            ],
+          },
+        },
+        {
+          "default": undefined,
+          "description": "\`'a'\` or \`'b'\` or an array thereof.",
+          "name": "mixed",
+          "type": {
+            "text": "'a' | 'b' | string | Array<'a' | 'b' | string>",
+            "type": "union",
+            "types": [
+              {
+                "text": "'a'",
+                "type": "simple",
+              },
+              {
+                "text": "'b'",
+                "type": "simple",
+              },
+              {
+                "text": "string & { zz_IGNORE_ME?: undefined; }",
+                "type": "simple",
+              },
+              {
+                "text": "Array<'a' | 'b' | string>",
+                "type": "generic",
+                "typeParameters": [
+                  {
+                    "text": "'a' | 'b' | string",
+                    "type": "union",
+                    "types": [
+                      {
+                        "text": "'a' | 'b'",
+                        "type": "union",
+                        "types": [
+                          {
+                            "text": "'a'",
+                            "type": "simple",
+                          },
+                          {
+                            "text": "'b'",
+                            "type": "simple",
+                          },
+                        ],
+                      },
+                      {
+                        "text": "string",
+                        "type": "simple",
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+        },
+        {
+          "default": undefined,
+          "description": "\`'a'\` or \`'b'\` or an array thereof.",
+          "name": "namedMixed",
+          "type": {
+            "text": "'a' | 'b' | string | Array<AB | string>",
+            "type": "union",
+            "types": [
+              {
+                "text": "'a'",
+                "type": "simple",
+              },
+              {
+                "text": "'b'",
+                "type": "simple",
+              },
+              {
+                "text": "string & { zz_IGNORE_ME?: undefined; }",
+                "type": "simple",
+              },
+              {
+                "text": "Array<AB | string>",
+                "type": "generic",
+                "typeParameters": [
+                  {
+                    "text": "AB | string",
+                    "type": "union",
+                    "types": [
+                      {
+                        "resolvedType": {
+                          "text": "'a' | 'b'",
+                          "type": "union",
+                          "types": [
+                            {
+                              "text": "'a'",
+                              "type": "simple",
+                            },
+                            {
+                              "text": "'b'",
+                              "type": "simple",
+                            },
+                          ],
+                        },
+                        "text": "AB",
+                        "type": "shadow",
+                      },
+                      {
+                        "text": "string",
+                        "type": "simple",
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+        },
+      ],
+      "remarks": [],
+      "returns": {
+        "text": "string",
+        "type": "simple",
+      },
+      "seeAlsos": [],
+      "signature": "function literalUnionParamMethod(
+    value: LiteralUnion<'a' | 'b'>,
+    namedValue: LiteralUnion<AB>,
+    array: ReadonlyArray<LiteralUnion<'a' | 'b'>>,
+    namedArray: ReadonlyArray<LiteralUnion<AB>>,
+    mixed: LiteralUnion<'a' | 'b'> | ReadonlyArray<LiteralUnion<'a' | 'b'>>,
+    namedMixed: ReadonlyArray<LiteralUnion<AB>> | LiteralUnion<AB>
+  ): string;",
+      "since": "1.0.0",
+      "throws": [],
+    },
+  ],
+  "source": {
+    "column": -1,
+    "filePath": "test/scripts/apidocs/method.example.ts",
+    "line": -1,
+  },
+}
+`;
+
+exports[`method > processMethodLike(methodWithDeprecated) 1`] = `
+{
+  "name": "methodWithDeprecated",
+  "signatures": [
+    {
+      "deprecated": "do something else",
+      "description": "Test with deprecated and see marker.",
+      "examples": [],
+      "experimental": undefined,
+      "parameters": [],
+      "remarks": [],
+      "returns": {
+        "text": "number",
+        "type": "simple",
+      },
+      "seeAlsos": [
+        "test.apidocs.methodWithExample()",
+      ],
+      "signature": "function methodWithDeprecated(): number;",
+      "since": "1.0.0",
+      "throws": [],
+    },
+  ],
+  "source": {
+    "column": -1,
+    "filePath": "test/scripts/apidocs/method.example.ts",
+    "line": -1,
+  },
+}
+`;
+
+exports[`method > processMethodLike(methodWithDeprecatedOption) 1`] = `
+{
+  "name": "methodWithDeprecatedOption",
+  "signatures": [
+    {
+      "deprecated": undefined,
+      "description": "Test with deprecated option.",
+      "examples": [],
+      "experimental": undefined,
+      "parameters": [
+        {
+          "default": undefined,
+          "description": "The options.",
+          "name": "option",
+          "type": {
+            "text": "{ … }",
+            "type": "simple",
+          },
+        },
+        {
+          "default": undefined,
+          "description": "Some deprecated option.
+
+**DEPRECATED:** do something else.",
+          "name": "option.a",
+          "type": {
+            "text": "string",
+            "type": "simple",
+          },
+        },
+        {
+          "default": undefined,
+          "description": "Some other deprecated option.
+
+**DEPRECATED:** do something else.",
+          "name": "option.b",
+          "type": {
+            "text": "() => number",
+            "type": "simple",
+          },
+        },
+        {
+          "default": undefined,
+          "description": "Some other option.",
+          "name": "option.c",
+          "type": {
+            "text": "number",
+            "type": "simple",
+          },
+        },
+      ],
+      "remarks": [],
+      "returns": {
+        "text": "number",
+        "type": "simple",
+      },
+      "seeAlsos": [],
+      "signature": "function methodWithDeprecatedOption(option: {
+    a: string;
+    b: () => number;
+    c: number;
+  }): number;",
+      "since": "1.0.0",
+      "throws": [],
+    },
+  ],
+  "source": {
+    "column": -1,
+    "filePath": "test/scripts/apidocs/method.example.ts",
+    "line": -1,
+  },
+}
+`;
+
+exports[`method > processMethodLike(methodWithExample) 1`] = `
+{
+  "name": "methodWithExample",
+  "signatures": [
+    {
+      "deprecated": undefined,
+      "description": "Test with example marker.",
+      "examples": [
+        "test.apidocs.methodWithExample() // 0",
+      ],
+      "experimental": undefined,
+      "parameters": [],
+      "remarks": [],
+      "returns": {
+        "text": "number",
+        "type": "simple",
+      },
+      "seeAlsos": [],
+      "signature": "function methodWithExample(): number;",
+      "since": "1.0.0",
+      "throws": [],
+    },
+  ],
+  "source": {
+    "column": -1,
+    "filePath": "test/scripts/apidocs/method.example.ts",
+    "line": -1,
+  },
+}
+`;
+
+exports[`method > processMethodLike(methodWithExperimental) 1`] = `
+{
+  "name": "methodWithExperimental",
+  "signatures": [
+    {
+      "deprecated": undefined,
+      "description": "Test with experimental .",
+      "examples": [],
+      "experimental": true,
+      "parameters": [],
+      "remarks": [],
+      "returns": {
+        "text": "number",
+        "type": "simple",
+      },
+      "seeAlsos": [],
+      "signature": "function methodWithExperimental(): number;",
+      "since": "1.0.0",
+      "throws": [],
+    },
+  ],
+  "source": {
+    "column": -1,
+    "filePath": "test/scripts/apidocs/method.example.ts",
+    "line": -1,
+  },
+}
+`;
+
+exports[`method > processMethodLike(methodWithMultipleExamples) 1`] = `
+{
+  "name": "methodWithMultipleExamples",
+  "signatures": [
+    {
+      "deprecated": undefined,
+      "description": "Test with multiple example markers.",
+      "examples": [
+        "// Inline usage
+test.apidocs.methodWithMultipleExamples() // 0",
+        "// Stored in a variable
+const value = test.apidocs.methodWithMultipleExamples();
+console.log(value); // 0",
+      ],
+      "experimental": undefined,
+      "parameters": [],
+      "remarks": [],
+      "returns": {
+        "text": "number",
+        "type": "simple",
+      },
+      "seeAlsos": [],
+      "signature": "function methodWithMultipleExamples(): number;",
+      "since": "1.0.0",
+      "throws": [],
+    },
+  ],
+  "source": {
+    "column": -1,
+    "filePath": "test/scripts/apidocs/method.example.ts",
+    "line": -1,
+  },
+}
+`;
+
+exports[`method > processMethodLike(methodWithMultipleRemarks) 1`] = `
+{
+  "name": "methodWithMultipleRemarks",
+  "signatures": [
+    {
+      "deprecated": undefined,
+      "description": "Test with multiple remark markers.",
+      "examples": [],
+      "experimental": undefined,
+      "parameters": [],
+      "remarks": [
+        "First special text.",
+        "Second special text.",
+        "Third special text.",
+      ],
+      "returns": {
+        "text": "number",
+        "type": "simple",
+      },
+      "seeAlsos": [],
+      "signature": "function methodWithMultipleRemarks(): number;",
+      "since": "1.0.0",
+      "throws": [],
+    },
+  ],
+  "source": {
+    "column": -1,
+    "filePath": "test/scripts/apidocs/method.example.ts",
+    "line": -1,
+  },
+}
+`;
+
+exports[`method > processMethodLike(methodWithMultipleSeeMarkers) 1`] = `
+{
+  "name": "methodWithMultipleSeeMarkers",
+  "signatures": [
+    {
+      "deprecated": undefined,
+      "description": "Test with multiple see markers.",
+      "examples": [],
+      "experimental": undefined,
+      "parameters": [],
+      "remarks": [],
+      "returns": {
+        "text": "number",
+        "type": "simple",
+      },
+      "seeAlsos": [
+        "test.apidocsmethodWithExample()",
+        "test.apidocsmethodWithDeprecated()",
+      ],
+      "signature": "function methodWithMultipleSeeMarkers(): number;",
+      "since": "1.0.0",
+      "throws": [],
+    },
+  ],
+  "source": {
+    "column": -1,
+    "filePath": "test/scripts/apidocs/method.example.ts",
+    "line": -1,
+  },
+}
+`;
+
+exports[`method > processMethodLike(methodWithMultipleSeeMarkersAndBackticks) 1`] = `
+{
+  "name": "methodWithMultipleSeeMarkersAndBackticks",
+  "signatures": [
+    {
+      "deprecated": undefined,
+      "description": "Test with multiple see markers and backticks.",
+      "examples": [],
+      "experimental": undefined,
+      "parameters": [],
+      "remarks": [],
+      "returns": {
+        "text": "number",
+        "type": "simple",
+      },
+      "seeAlsos": [
+        "test.apidocsmethodWithExample() with parameter \`foo\`.",
+        "test.apidocsmethodWithDeprecated() with parameter \`bar\` and \`baz\`.",
+      ],
+      "signature": "function methodWithMultipleSeeMarkersAndBackticks(): number;",
+      "since": "1.0.0",
+      "throws": [],
+    },
+  ],
+  "source": {
+    "column": -1,
+    "filePath": "test/scripts/apidocs/method.example.ts",
+    "line": -1,
+  },
+}
+`;
+
+exports[`method > processMethodLike(methodWithMultipleThrows) 1`] = `
+{
+  "name": "methodWithMultipleThrows",
+  "signatures": [
+    {
+      "deprecated": undefined,
+      "description": "Test with multiple throws.",
+      "examples": [],
+      "experimental": undefined,
+      "parameters": [],
+      "remarks": [],
+      "returns": {
+        "text": "number",
+        "type": "simple",
+      },
+      "seeAlsos": [],
+      "signature": "function methodWithMultipleThrows(): number;",
+      "since": "1.0.0",
+      "throws": [
+        "First error case.",
+        "Another error case.",
+      ],
+    },
+  ],
+  "source": {
+    "column": -1,
+    "filePath": "test/scripts/apidocs/method.example.ts",
+    "line": -1,
+  },
+}
+`;
+
+exports[`method > processMethodLike(methodWithRemark) 1`] = `
+{
+  "name": "methodWithRemark",
+  "signatures": [
+    {
+      "deprecated": undefined,
+      "description": "Test with remark marker.",
+      "examples": [],
+      "experimental": undefined,
+      "parameters": [],
+      "remarks": [
+        "This text is special.",
+      ],
+      "returns": {
+        "text": "number",
+        "type": "simple",
+      },
+      "seeAlsos": [],
+      "signature": "function methodWithRemark(): number;",
+      "since": "1.0.0",
+      "throws": [],
+    },
+  ],
+  "source": {
+    "column": -1,
+    "filePath": "test/scripts/apidocs/method.example.ts",
+    "line": -1,
+  },
+}
+`;
+
+exports[`method > processMethodLike(methodWithSinceMarker) 1`] = `
+{
+  "name": "methodWithSinceMarker",
+  "signatures": [
+    {
+      "deprecated": undefined,
+      "description": "Test with since marker.",
+      "examples": [],
+      "experimental": undefined,
+      "parameters": [],
+      "remarks": [],
+      "returns": {
+        "text": "number",
+        "type": "simple",
+      },
+      "seeAlsos": [],
+      "signature": "function methodWithSinceMarker(): number;",
+      "since": "1.0.0",
+      "throws": [],
+    },
+  ],
+  "source": {
+    "column": -1,
+    "filePath": "test/scripts/apidocs/method.example.ts",
+    "line": -1,
+  },
+}
+`;
+
+exports[`method > processMethodLike(methodWithThrows) 1`] = `
+{
+  "name": "methodWithThrows",
+  "signatures": [
+    {
+      "deprecated": undefined,
+      "description": "Test with throws.",
+      "examples": [],
+      "experimental": undefined,
+      "parameters": [],
+      "remarks": [],
+      "returns": {
+        "text": "number",
+        "type": "simple",
+      },
+      "seeAlsos": [],
+      "signature": "function methodWithThrows(): number;",
+      "since": "1.0.0",
+      "throws": [
+        "Everytime.",
+      ],
+    },
+  ],
+  "source": {
+    "column": -1,
+    "filePath": "test/scripts/apidocs/method.example.ts",
+    "line": -1,
+  },
+}
+`;
+
+exports[`method > processMethodLike(multiParamMethod) 1`] = `
+{
+  "name": "multiParamMethod",
+  "signatures": [
+    {
+      "deprecated": undefined,
+      "description": "Test with multiple parameters.",
+      "examples": [],
+      "experimental": undefined,
+      "parameters": [
+        {
+          "default": undefined,
+          "description": "The number parameter.",
+          "name": "a",
+          "type": {
+            "text": "number",
+            "type": "simple",
+          },
+        },
+        {
+          "default": undefined,
+          "description": "The string parameter.",
+          "name": "b?",
+          "type": {
+            "text": "string",
+            "type": "simple",
+          },
+        },
+        {
+          "default": "true",
+          "description": "The boolean parameter.",
+          "name": "c",
+          "type": {
+            "text": "boolean",
+            "type": "simple",
+          },
+        },
+      ],
+      "remarks": [],
+      "returns": {
+        "text": "number",
+        "type": "simple",
+      },
+      "seeAlsos": [],
+      "signature": "function multiParamMethod(a: number, b?: string, c: boolean = true): number;",
+      "since": "1.0.0",
+      "throws": [],
+    },
+  ],
+  "source": {
+    "column": -1,
+    "filePath": "test/scripts/apidocs/method.example.ts",
+    "line": -1,
+  },
+}
+`;
+
+exports[`method > processMethodLike(noParamMethod) 1`] = `
+{
+  "name": "noParamMethod",
+  "signatures": [
+    {
+      "deprecated": undefined,
+      "description": "Test with no parameters.",
+      "examples": [],
+      "experimental": undefined,
+      "parameters": [],
+      "remarks": [],
+      "returns": {
+        "text": "number",
+        "type": "simple",
+      },
+      "seeAlsos": [],
+      "signature": "function noParamMethod(): number;",
+      "since": "1.0.0",
+      "throws": [],
+    },
+  ],
+  "source": {
+    "column": -1,
+    "filePath": "test/scripts/apidocs/method.example.ts",
+    "line": -1,
+  },
+}
+`;
+
+exports[`method > processMethodLike(numberOrRangeParamMethod) 1`] = `
+{
+  "name": "numberOrRangeParamMethod",
+  "signatures": [
+    {
+      "deprecated": undefined,
+      "description": "Test with NumberOrRange.",
+      "examples": [],
+      "experimental": undefined,
+      "parameters": [
+        {
+          "default": undefined,
+          "description": "\`5\` or \`{min: 1, max: 10}\`.",
+          "name": "value",
+          "type": {
+            "text": "number | { min: number; max: number }",
+            "type": "union",
+            "types": [
+              {
+                "text": "number",
+                "type": "simple",
+              },
+              {
+                "members": [
+                  {
+                    "name": "min",
+                    "type": {
+                      "text": "number",
+                      "type": "simple",
+                    },
+                  },
+                  {
+                    "name": "max",
+                    "type": {
+                      "text": "number",
+                      "type": "simple",
+                    },
+                  },
+                ],
+                "text": "{ min: number; max: number }",
+                "type": "object",
+              },
+            ],
+          },
+        },
+        {
+          "default": undefined,
+          "description": "The maximum value (inclusive).",
+          "name": "value.max",
+          "type": {
+            "text": "number",
+            "type": "simple",
+          },
+        },
+        {
+          "default": undefined,
+          "description": "The minimum value (inclusive).",
+          "name": "value.min",
+          "type": {
+            "text": "number",
+            "type": "simple",
+          },
+        },
+        {
+          "default": undefined,
+          "description": "Array of \`5\` or \`{min: 1, max: 10}\`.",
+          "name": "array",
+          "type": {
+            "text": "Array<number | { min: number; max: number }>",
+            "type": "generic",
+            "typeParameters": [
+              {
+                "text": "number | { min: number; max: number }",
+                "type": "union",
+                "types": [
+                  {
+                    "text": "number",
+                    "type": "simple",
+                  },
+                  {
+                    "members": [
+                      {
+                        "name": "min",
+                        "type": {
+                          "text": "number",
+                          "type": "simple",
+                        },
+                      },
+                      {
+                        "name": "max",
+                        "type": {
+                          "text": "number",
+                          "type": "simple",
+                        },
+                      },
+                    ],
+                    "text": "{ min: number; max: number }",
+                    "type": "object",
+                  },
+                ],
+              },
+            ],
+          },
+        },
+        {
+          "default": undefined,
+          "description": "The maximum value (inclusive).",
+          "name": "array[].max",
+          "type": {
+            "text": "number",
+            "type": "simple",
+          },
+        },
+        {
+          "default": undefined,
+          "description": "The minimum value (inclusive).",
+          "name": "array[].min",
+          "type": {
+            "text": "number",
+            "type": "simple",
+          },
+        },
+        {
+          "default": undefined,
+          "description": "The options parameter.",
+          "name": "options",
+          "type": {
+            "text": "{ … }",
+            "type": "simple",
+          },
+        },
+        {
+          "default": undefined,
+          "description": "The count parameter.",
+          "name": "options.count",
+          "type": {
+            "text": "number | { min: number; max: number }",
+            "type": "union",
+            "types": [
+              {
+                "text": "number",
+                "type": "simple",
+              },
+              {
+                "members": [
+                  {
+                    "name": "min",
+                    "type": {
+                      "text": "number",
+                      "type": "simple",
+                    },
+                  },
+                  {
+                    "name": "max",
+                    "type": {
+                      "text": "number",
+                      "type": "simple",
+                    },
+                  },
+                ],
+                "text": "{ min: number; max: number }",
+                "type": "object",
+              },
+            ],
+          },
+        },
+        {
+          "default": undefined,
+          "description": "\`5\` or \`{min: 1, max: 10}\` or an array thereof.",
+          "name": "mixed",
+          "type": {
+            "text": "number | { min: number; max: number } | Array<number | { min: number; max: number }>",
+            "type": "union",
+            "types": [
+              {
+                "text": "number",
+                "type": "simple",
+              },
+              {
+                "members": [
+                  {
+                    "name": "min",
+                    "type": {
+                      "text": "number",
+                      "type": "simple",
+                    },
+                  },
+                  {
+                    "name": "max",
+                    "type": {
+                      "text": "number",
+                      "type": "simple",
+                    },
+                  },
+                ],
+                "text": "{ min: number; max: number }",
+                "type": "object",
+              },
+              {
+                "text": "Array<number | { min: number; max: number }>",
+                "type": "generic",
+                "typeParameters": [
+                  {
+                    "text": "number | { min: number; max: number }",
+                    "type": "union",
+                    "types": [
+                      {
+                        "text": "number",
+                        "type": "simple",
+                      },
+                      {
+                        "members": [
+                          {
+                            "name": "min",
+                            "type": {
+                              "text": "number",
+                              "type": "simple",
+                            },
+                          },
+                          {
+                            "name": "max",
+                            "type": {
+                              "text": "number",
+                              "type": "simple",
+                            },
+                          },
+                        ],
+                        "text": "{ min: number; max: number }",
+                        "type": "object",
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+        },
+        {
+          "default": undefined,
+          "description": "The maximum value (inclusive).",
+          "name": "mixed.max",
+          "type": {
+            "text": "number",
+            "type": "simple",
+          },
+        },
+        {
+          "default": undefined,
+          "description": "The minimum value (inclusive).",
+          "name": "mixed.min",
+          "type": {
+            "text": "number",
+            "type": "simple",
+          },
+        },
+        {
+          "default": undefined,
+          "description": "The maximum value (inclusive).",
+          "name": "mixed[].max",
+          "type": {
+            "text": "number",
+            "type": "simple",
+          },
+        },
+        {
+          "default": undefined,
+          "description": "The minimum value (inclusive).",
+          "name": "mixed[].min",
+          "type": {
+            "text": "number",
+            "type": "simple",
+          },
+        },
+      ],
+      "remarks": [],
+      "returns": {
+        "text": "string",
+        "type": "simple",
+      },
+      "seeAlsos": [],
+      "signature": "function numberOrRangeParamMethod(
+    value: NumberOrRange,
+    array: ReadonlyArray<NumberOrRange>,
+    options: {
+      /** The count parameter. */
+      count: NumberOrRange;
+    },
+    mixed: NumberOrRange | ReadonlyArray<NumberOrRange>
+  ): string;",
+      "since": "1.0.0",
+      "throws": [],
+    },
+  ],
+  "source": {
+    "column": -1,
+    "filePath": "test/scripts/apidocs/method.example.ts",
+    "line": -1,
+  },
+}
+`;
+
+exports[`method > processMethodLike(numberRangeParamMethod) 1`] = `
+{
+  "name": "numberRangeParamMethod",
+  "signatures": [
+    {
+      "deprecated": undefined,
+      "description": "Test with NumberRange.",
+      "examples": [],
+      "experimental": undefined,
+      "parameters": [
+        {
+          "default": undefined,
+          "description": "\`{min: 1, max: 10}\`.",
+          "name": "value",
+          "type": {
+            "members": [
+              {
+                "name": "min",
+                "type": {
+                  "text": "number",
+                  "type": "simple",
+                },
+              },
+              {
+                "name": "max",
+                "type": {
+                  "text": "number",
+                  "type": "simple",
+                },
+              },
+            ],
+            "text": "{ min: number; max: number }",
+            "type": "object",
+          },
+        },
+        {
+          "default": "10",
+          "description": "The maximum value.",
+          "name": "value.max",
+          "type": {
+            "text": "number",
+            "type": "simple",
+          },
+        },
+        {
+          "default": undefined,
+          "description": "The minimum value.",
+          "name": "value.min",
+          "type": {
+            "text": "number",
+            "type": "simple",
+          },
+        },
+        {
+          "default": undefined,
+          "description": "Array of \`{min: 1, max: 10}\`.",
+          "name": "array",
+          "type": {
+            "text": "Array<{ min: number; max: number }>",
+            "type": "generic",
+            "typeParameters": [
+              {
+                "members": [
+                  {
+                    "name": "min",
+                    "type": {
+                      "text": "number",
+                      "type": "simple",
+                    },
+                  },
+                  {
+                    "name": "max",
+                    "type": {
+                      "text": "number",
+                      "type": "simple",
+                    },
+                  },
+                ],
+                "text": "{ min: number; max: number }",
+                "type": "object",
+              },
+            ],
+          },
+        },
+        {
+          "default": undefined,
+          "description": "The maximum value (inclusive).",
+          "name": "array[].max",
+          "type": {
+            "text": "number",
+            "type": "simple",
+          },
+        },
+        {
+          "default": undefined,
+          "description": "The minimum value (inclusive).",
+          "name": "array[].min",
+          "type": {
+            "text": "number",
+            "type": "simple",
+          },
+        },
+        {
+          "default": undefined,
+          "description": "The options parameter.",
+          "name": "options",
+          "type": {
+            "text": "{ … }",
+            "type": "simple",
+          },
+        },
+        {
+          "default": undefined,
+          "description": "The count parameter.",
+          "name": "options.count",
+          "type": {
+            "members": [
+              {
+                "name": "min",
+                "type": {
+                  "text": "number",
+                  "type": "simple",
+                },
+              },
+              {
+                "name": "max",
+                "type": {
+                  "text": "number",
+                  "type": "simple",
+                },
+              },
+            ],
+            "text": "{ min: number; max: number }",
+            "type": "object",
+          },
+        },
+        {
+          "default": undefined,
+          "description": "\`{min: 1, max: 10}\` or an array thereof.",
+          "name": "mixed",
+          "type": {
+            "text": "{ min: number; max: number } | Array<{ min: number; max: number }>",
+            "type": "union",
+            "types": [
+              {
+                "members": [
+                  {
+                    "name": "min",
+                    "type": {
+                      "text": "number",
+                      "type": "simple",
+                    },
+                  },
+                  {
+                    "name": "max",
+                    "type": {
+                      "text": "number",
+                      "type": "simple",
+                    },
+                  },
+                ],
+                "text": "{ min: number; max: number }",
+                "type": "object",
+              },
+              {
+                "text": "Array<{ min: number; max: number }>",
+                "type": "generic",
+                "typeParameters": [
+                  {
+                    "members": [
+                      {
+                        "name": "min",
+                        "type": {
+                          "text": "number",
+                          "type": "simple",
+                        },
+                      },
+                      {
+                        "name": "max",
+                        "type": {
+                          "text": "number",
+                          "type": "simple",
+                        },
+                      },
+                    ],
+                    "text": "{ min: number; max: number }",
+                    "type": "object",
+                  },
+                ],
+              },
+            ],
+          },
+        },
+        {
+          "default": undefined,
+          "description": "The maximum value (inclusive).",
+          "name": "mixed.max",
+          "type": {
+            "text": "number",
+            "type": "simple",
+          },
+        },
+        {
+          "default": undefined,
+          "description": "The minimum value (inclusive).",
+          "name": "mixed.min",
+          "type": {
+            "text": "number",
+            "type": "simple",
+          },
+        },
+        {
+          "default": undefined,
+          "description": "The maximum value (inclusive).",
+          "name": "mixed[].max",
+          "type": {
+            "text": "number",
+            "type": "simple",
+          },
+        },
+        {
+          "default": undefined,
+          "description": "The minimum value (inclusive).",
+          "name": "mixed[].min",
+          "type": {
+            "text": "number",
+            "type": "simple",
+          },
+        },
+      ],
+      "remarks": [],
+      "returns": {
+        "text": "string",
+        "type": "simple",
+      },
+      "seeAlsos": [],
+      "signature": "function numberRangeParamMethod(
+    value: NumberRange,
+    array: ReadonlyArray<NumberRange>,
+    options: {
+      /** The count parameter. */
+      count: NumberRange;
+    },
+    mixed: NumberRange | ReadonlyArray<NumberRange>
+  ): string;",
+      "since": "1.0.0",
+      "throws": [],
+    },
+  ],
+  "source": {
+    "column": -1,
+    "filePath": "test/scripts/apidocs/method.example.ts",
+    "line": -1,
+  },
+}
+`;
+
+exports[`method > processMethodLike(optionalStringParamMethod) 1`] = `
+{
+  "name": "optionalStringParamMethod",
+  "signatures": [
+    {
+      "deprecated": undefined,
+      "description": "Test with an optional parameter.",
+      "examples": [],
+      "experimental": undefined,
+      "parameters": [
+        {
+          "default": undefined,
+          "description": "The string parameter.",
+          "name": "b?",
+          "type": {
+            "text": "string",
+            "type": "simple",
+          },
+        },
+      ],
+      "remarks": [],
+      "returns": {
+        "text": "number",
+        "type": "simple",
+      },
+      "seeAlsos": [],
+      "signature": "function optionalStringParamMethod(b?: string): number;",
+      "since": "1.0.0",
+      "throws": [],
+    },
+  ],
+  "source": {
+    "column": -1,
+    "filePath": "test/scripts/apidocs/method.example.ts",
+    "line": -1,
+  },
+}
+`;
+
+exports[`method > processMethodLike(optionsInlineParamMethodWithDefaults) 1`] = `
+{
+  "name": "optionsInlineParamMethodWithDefaults",
+  "signatures": [
+    {
+      "deprecated": undefined,
+      "description": "Test with a function parameters (inline types) with defaults.",
+      "examples": [],
+      "experimental": undefined,
+      "parameters": [
+        {
+          "default": "{ value: 1 }",
+          "description": "Parameter with signature default.
+It also has a more complex description.",
+          "name": "a",
+          "type": {
+            "text": "{ … }",
+            "type": "simple",
+          },
+        },
+        {
+          "default": undefined,
+          "description": "The number parameter.",
+          "name": "a.value?",
+          "type": {
+            "text": "number",
+            "type": "simple",
+          },
+        },
+        {
+          "default": "{ value: 1 }",
+          "description": "Parameter with jsdocs default.
+
+It also has a more complex description.",
+          "name": "b",
+          "type": {
+            "text": "{ … }",
+            "type": "simple",
+          },
+        },
+        {
+          "default": undefined,
+          "description": "The number parameter.",
+          "name": "b.value?",
+          "type": {
+            "text": "number",
+            "type": "simple",
+          },
+        },
+        {
+          "default": undefined,
+          "description": "Parameter with inner jsdocs default.",
+          "name": "c",
+          "type": {
+            "text": "{ … }",
+            "type": "simple",
+          },
+        },
+        {
+          "default": undefined,
+          "description": "The number parameter.",
+          "name": "c.value?",
+          "type": {
+            "text": "number",
+            "type": "simple",
+          },
+        },
+      ],
+      "remarks": [],
+      "returns": {
+        "text": "number",
+        "type": "simple",
+      },
+      "seeAlsos": [],
+      "signature": "function optionsInlineParamMethodWithDefaults(
+    a: {
+      value?: number;
+    } = { value: 1 },
+    b: {
+      value?: number;
+    },
+    c: {
+      value?: number;
+    }
+  ): number;",
+      "since": "1.0.0",
+      "throws": [],
+    },
+  ],
+  "source": {
+    "column": -1,
+    "filePath": "test/scripts/apidocs/method.example.ts",
+    "line": -1,
+  },
+}
+`;
+
+exports[`method > processMethodLike(optionsInterfaceParamMethodWithDefaults) 1`] = `
+{
+  "name": "optionsInterfaceParamMethodWithDefaults",
+  "signatures": [
+    {
+      "deprecated": undefined,
+      "description": "Test with a function parameters with defaults.",
+      "examples": [],
+      "experimental": undefined,
+      "parameters": [
+        {
+          "default": "{ value: 1 }",
+          "description": "Parameter with signature default.",
+          "name": "a",
+          "type": {
+            "text": "ParameterOptionsInterfaceA",
+            "type": "simple",
+          },
+        },
+        {
+          "default": "{ value: 1 }",
+          "description": "Parameter with jsdocs default.",
+          "name": "b",
+          "type": {
+            "text": "ParameterOptionsInterfaceB",
+            "type": "simple",
+          },
+        },
+        {
+          "default": undefined,
+          "description": "Parameter with inner jsdocs default.",
+          "name": "c",
+          "type": {
+            "text": "ParameterOptionsInterfaceC",
+            "type": "simple",
+          },
+        },
+      ],
+      "remarks": [],
+      "returns": {
+        "text": "number",
+        "type": "simple",
+      },
+      "seeAlsos": [],
+      "signature": "function optionsInterfaceParamMethodWithDefaults(
+    a: ParameterOptionsInterfaceA = { value: 1 },
+    b: ParameterOptionsInterfaceB,
+    c: ParameterOptionsInterfaceC
+  ): number;",
+      "since": "1.0.0",
+      "throws": [],
+    },
+  ],
+  "source": {
+    "column": -1,
+    "filePath": "test/scripts/apidocs/method.example.ts",
+    "line": -1,
+  },
+}
+`;
+
+exports[`method > processMethodLike(optionsParamMethod) 1`] = `
+{
+  "name": "optionsParamMethod",
+  "signatures": [
+    {
+      "deprecated": undefined,
+      "description": "Test with an options parameter.",
+      "examples": [],
+      "experimental": undefined,
+      "parameters": [
+        {
+          "default": undefined,
+          "description": "The options parameter.",
+          "name": "options",
+          "type": {
+            "text": "{ … }",
+            "type": "simple",
+          },
+        },
+        {
+          "default": undefined,
+          "description": "The number parameter.",
+          "name": "options.a",
+          "type": {
+            "text": "number",
+            "type": "simple",
+          },
+        },
+        {
+          "default": undefined,
+          "description": "The string parameter.",
+          "name": "options.b?",
+          "type": {
+            "text": "string",
+            "type": "simple",
+          },
+        },
+        {
+          "default": undefined,
+          "description": "The boolean parameter.",
+          "name": "options.c",
+          "type": {
+            "text": "boolean",
+            "type": "simple",
+          },
+        },
+        {
+          "default": undefined,
+          "description": "The method parameter.",
+          "name": "options.d",
+          "type": {
+            "text": "() => string",
+            "type": "simple",
+          },
+        },
+        {
+          "default": "'a'",
+          "description": "A parameter with inline documentation.",
+          "name": "options.e",
+          "type": {
+            "text": "'a' | 'b' | string",
+            "type": "union",
+            "types": [
+              {
+                "text": "'a' | 'b'",
+                "type": "union",
+                "types": [
+                  {
+                    "text": "'a'",
+                    "type": "simple",
+                  },
+                  {
+                    "text": "'b'",
+                    "type": "simple",
+                  },
+                ],
+              },
+              {
+                "text": "string",
+                "type": "simple",
+              },
+            ],
+          },
+        },
+      ],
+      "remarks": [],
+      "returns": {
+        "text": "number",
+        "type": "simple",
+      },
+      "seeAlsos": [],
+      "signature": "function optionsParamMethod(options: {
+    a: number;
+    b?: string;
+    c: boolean;
+    d: () => string;
+    e: LiteralUnion<'a' | 'b'>;
+  }): number;",
+      "since": "1.0.0",
+      "throws": [],
+    },
+  ],
+  "source": {
+    "column": -1,
+    "filePath": "test/scripts/apidocs/method.example.ts",
+    "line": -1,
+  },
+}
+`;
+
+exports[`method > processMethodLike(optionsTypeParamMethodWithDefaults) 1`] = `
+{
+  "name": "optionsTypeParamMethodWithDefaults",
+  "signatures": [
+    {
+      "deprecated": undefined,
+      "description": "Test with a function parameters with defaults.",
+      "examples": [],
+      "experimental": undefined,
+      "parameters": [
+        {
+          "default": "{ value: 1 }",
+          "description": "Parameter with signature default.",
+          "name": "a",
+          "type": {
+            "text": "{ … }",
+            "type": "simple",
+          },
+        },
+        {
+          "default": undefined,
+          "description": "Options value.",
+          "name": "a.value?",
+          "type": {
+            "text": "number",
+            "type": "simple",
+          },
+        },
+        {
+          "default": "{ value: 1 }",
+          "description": "Parameter with jsdocs default.",
+          "name": "b",
+          "type": {
+            "text": "{ … }",
+            "type": "simple",
+          },
+        },
+        {
+          "default": undefined,
+          "description": "Options value.",
+          "name": "b.value?",
+          "type": {
+            "text": "number",
+            "type": "simple",
+          },
+        },
+        {
+          "default": undefined,
+          "description": "Parameter with inner jsdocs default.",
+          "name": "c",
+          "type": {
+            "text": "{ … }",
+            "type": "simple",
+          },
+        },
+        {
+          "default": "0",
+          "description": "Options value.",
+          "name": "c.value?",
+          "type": {
+            "text": "number",
+            "type": "simple",
+          },
+        },
+      ],
+      "remarks": [],
+      "returns": {
+        "text": "number",
+        "type": "simple",
+      },
+      "seeAlsos": [],
+      "signature": "function optionsTypeParamMethodWithDefaults(
+    a: ParameterOptionsTypeA = { value: 1 },
+    b: ParameterOptionsTypeB,
+    c: ParameterOptionsTypeC
+  ): number;",
+      "since": "1.0.0",
+      "throws": [],
+    },
+  ],
+  "source": {
+    "column": -1,
+    "filePath": "test/scripts/apidocs/method.example.ts",
+    "line": -1,
+  },
+}
+`;
+
+exports[`method > processMethodLike(recordParamMethod) 1`] = `
+{
+  "name": "recordParamMethod",
+  "signatures": [
+    {
+      "deprecated": undefined,
+      "description": "Test with a Record parameter.",
+      "examples": [],
+      "experimental": undefined,
+      "parameters": [
+        {
+          "default": undefined,
+          "description": "The Record parameter.",
+          "name": "object",
+          "type": {
+            "text": "Record<string, number>",
+            "type": "simple",
+          },
+        },
+      ],
+      "remarks": [],
+      "returns": {
+        "text": "number",
+        "type": "simple",
+      },
+      "seeAlsos": [],
+      "signature": "function recordParamMethod(object: Record<string, number>): number;",
+      "since": "1.0.0",
+      "throws": [],
+    },
+  ],
+  "source": {
+    "column": -1,
+    "filePath": "test/scripts/apidocs/method.example.ts",
+    "line": -1,
+  },
+}
+`;
+
+exports[`method > processMethodLike(requiredNumberParamMethod) 1`] = `
+{
+  "name": "requiredNumberParamMethod",
+  "signatures": [
+    {
+      "deprecated": undefined,
+      "description": "Test with a required parameter.",
+      "examples": [],
+      "experimental": undefined,
+      "parameters": [
+        {
+          "default": undefined,
+          "description": "The number parameter.",
+          "name": "a",
+          "type": {
+            "text": "number",
+            "type": "simple",
+          },
+        },
+      ],
+      "remarks": [],
+      "returns": {
+        "text": "number",
+        "type": "simple",
+      },
+      "seeAlsos": [],
+      "signature": "function requiredNumberParamMethod(a: number): number;",
+      "since": "1.0.0",
+      "throws": [],
+    },
+  ],
+  "source": {
+    "column": -1,
+    "filePath": "test/scripts/apidocs/method.example.ts",
+    "line": -1,
+  },
+}
+`;
+
+exports[`method > processMethodLike(shadowTypeParamMethod) 1`] = `
+{
+  "name": "shadowTypeParamMethod",
+  "signatures": [
+    {
+      "deprecated": undefined,
+      "description": "Test with a shadow type, whose values carry per-value documentation.",
+      "examples": [],
+      "experimental": undefined,
+      "parameters": [
+        {
+          "default": undefined,
+          "description": "The direct shadow parameter.",
+          "name": "value",
+          "type": {
+            "text": "'first' | 'second'",
+            "type": "union",
+            "types": [
+              {
+                "description": "The first option.",
+                "text": "'first'",
+                "type": "simple",
+              },
+              {
+                "description": "The second option.",
+                "text": "'second'",
+                "type": "simple",
+              },
+            ],
+          },
+        },
+        {
+          "default": undefined,
+          "description": "The options parameter.",
+          "name": "options?",
+          "type": {
+            "text": "{ … }",
+            "type": "simple",
+          },
+        },
+        {
+          "default": undefined,
+          "description": "The nested shadow parameter.",
+          "name": "options.strategy?",
+          "type": {
+            "text": "'first' | 'second'",
+            "type": "union",
+            "types": [
+              {
+                "description": "The first option.",
+                "text": "'first'",
+                "type": "simple",
+              },
+              {
+                "description": "The second option.",
+                "text": "'second'",
+                "type": "simple",
+              },
+            ],
+          },
+        },
+      ],
+      "remarks": [],
+      "returns": {
+        "text": "string",
+        "type": "simple",
+      },
+      "seeAlsos": [],
+      "signature": "function shadowTypeParamMethod(
+    value: ShadowEnumType,
+    options?: {
+      strategy?: ShadowEnumType;
+    }
+  ): string;",
+      "since": "1.0.0",
+      "throws": [],
+    },
+  ],
+  "source": {
+    "column": -1,
+    "filePath": "test/scripts/apidocs/method.example.ts",
+    "line": -1,
+  },
+}
+`;
+
+exports[`method > processMethodLike(stringUnionParamMethod) 1`] = `
+{
+  "name": "stringUnionParamMethod",
+  "signatures": [
+    {
+      "deprecated": undefined,
+      "description": "Test with string union.",
+      "examples": [],
+      "experimental": undefined,
+      "parameters": [
+        {
+          "default": undefined,
+          "description": "\`'a'\` or \`'b'\`.",
+          "name": "value",
+          "type": {
+            "text": "'a' | 'b'",
+            "type": "union",
+            "types": [
+              {
+                "text": "'a'",
+                "type": "simple",
+              },
+              {
+                "text": "'b'",
+                "type": "simple",
+              },
+            ],
+          },
+        },
+        {
+          "default": undefined,
+          "description": "The options parameter.",
+          "name": "options?",
+          "type": {
+            "text": "{ … }",
+            "type": "simple",
+          },
+        },
+        {
+          "default": undefined,
+          "description": "The casing parameter.",
+          "name": "options.casing?",
+          "type": {
+            "resolvedType": {
+              "text": "'upper' | 'lower' | 'mixed'",
+              "type": "union",
+              "types": [
+                {
+                  "text": "'upper'",
+                  "type": "simple",
+                },
+                {
+                  "text": "'lower'",
+                  "type": "simple",
+                },
+                {
+                  "text": "'mixed'",
+                  "type": "simple",
+                },
+              ],
+            },
+            "text": "Casing",
+            "type": "shadow",
+          },
+        },
+        {
+          "default": undefined,
+          "description": "The excludes parameter.",
+          "name": "options.excludes?",
+          "type": {
+            "text": "AlphaNumericChar[]",
+            "type": "generic",
+            "typeParameters": [
+              {
+                "resolvedType": {
+                  "text": "'a' | 'b' | 'c' | 'd' | 'e' | 'f' | 'g' | 'h' | 'i' | 'j' | 'k' | 'l' | 'm' | 'n' | 'o' | 'p' | 'q' | 'r' | 's' | 't' | 'u' | 'v' | 'w' | 'x' | 'y' | 'z' | 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G' | 'H' | 'I' | 'J' | 'K' | 'L' | 'M' | 'N' | 'O' | 'P' | 'Q' | 'R' | 'S' | 'T' | 'U' | 'V' | 'W' | 'X' | 'Y' | 'Z' | '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9'",
+                  "type": "union",
+                  "types": [
+                    {
+                      "text": "'a'",
+                      "type": "simple",
+                    },
+                    {
+                      "text": "'b'",
+                      "type": "simple",
+                    },
+                    {
+                      "text": "'c'",
+                      "type": "simple",
+                    },
+                    {
+                      "text": "'d'",
+                      "type": "simple",
+                    },
+                    {
+                      "text": "'e'",
+                      "type": "simple",
+                    },
+                    {
+                      "text": "'f'",
+                      "type": "simple",
+                    },
+                    {
+                      "text": "'g'",
+                      "type": "simple",
+                    },
+                    {
+                      "text": "'h'",
+                      "type": "simple",
+                    },
+                    {
+                      "text": "'i'",
+                      "type": "simple",
+                    },
+                    {
+                      "text": "'j'",
+                      "type": "simple",
+                    },
+                    {
+                      "text": "'k'",
+                      "type": "simple",
+                    },
+                    {
+                      "text": "'l'",
+                      "type": "simple",
+                    },
+                    {
+                      "text": "'m'",
+                      "type": "simple",
+                    },
+                    {
+                      "text": "'n'",
+                      "type": "simple",
+                    },
+                    {
+                      "text": "'o'",
+                      "type": "simple",
+                    },
+                    {
+                      "text": "'p'",
+                      "type": "simple",
+                    },
+                    {
+                      "text": "'q'",
+                      "type": "simple",
+                    },
+                    {
+                      "text": "'r'",
+                      "type": "simple",
+                    },
+                    {
+                      "text": "'s'",
+                      "type": "simple",
+                    },
+                    {
+                      "text": "'t'",
+                      "type": "simple",
+                    },
+                    {
+                      "text": "'u'",
+                      "type": "simple",
+                    },
+                    {
+                      "text": "'v'",
+                      "type": "simple",
+                    },
+                    {
+                      "text": "'w'",
+                      "type": "simple",
+                    },
+                    {
+                      "text": "'x'",
+                      "type": "simple",
+                    },
+                    {
+                      "text": "'y'",
+                      "type": "simple",
+                    },
+                    {
+                      "text": "'z'",
+                      "type": "simple",
+                    },
+                    {
+                      "text": "'A'",
+                      "type": "simple",
+                    },
+                    {
+                      "text": "'B'",
+                      "type": "simple",
+                    },
+                    {
+                      "text": "'C'",
+                      "type": "simple",
+                    },
+                    {
+                      "text": "'D'",
+                      "type": "simple",
+                    },
+                    {
+                      "text": "'E'",
+                      "type": "simple",
+                    },
+                    {
+                      "text": "'F'",
+                      "type": "simple",
+                    },
+                    {
+                      "text": "'G'",
+                      "type": "simple",
+                    },
+                    {
+                      "text": "'H'",
+                      "type": "simple",
+                    },
+                    {
+                      "text": "'I'",
+                      "type": "simple",
+                    },
+                    {
+                      "text": "'J'",
+                      "type": "simple",
+                    },
+                    {
+                      "text": "'K'",
+                      "type": "simple",
+                    },
+                    {
+                      "text": "'L'",
+                      "type": "simple",
+                    },
+                    {
+                      "text": "'M'",
+                      "type": "simple",
+                    },
+                    {
+                      "text": "'N'",
+                      "type": "simple",
+                    },
+                    {
+                      "text": "'O'",
+                      "type": "simple",
+                    },
+                    {
+                      "text": "'P'",
+                      "type": "simple",
+                    },
+                    {
+                      "text": "'Q'",
+                      "type": "simple",
+                    },
+                    {
+                      "text": "'R'",
+                      "type": "simple",
+                    },
+                    {
+                      "text": "'S'",
+                      "type": "simple",
+                    },
+                    {
+                      "text": "'T'",
+                      "type": "simple",
+                    },
+                    {
+                      "text": "'U'",
+                      "type": "simple",
+                    },
+                    {
+                      "text": "'V'",
+                      "type": "simple",
+                    },
+                    {
+                      "text": "'W'",
+                      "type": "simple",
+                    },
+                    {
+                      "text": "'X'",
+                      "type": "simple",
+                    },
+                    {
+                      "text": "'Y'",
+                      "type": "simple",
+                    },
+                    {
+                      "text": "'Z'",
+                      "type": "simple",
+                    },
+                    {
+                      "text": "'0'",
+                      "type": "simple",
+                    },
+                    {
+                      "text": "'1'",
+                      "type": "simple",
+                    },
+                    {
+                      "text": "'2'",
+                      "type": "simple",
+                    },
+                    {
+                      "text": "'3'",
+                      "type": "simple",
+                    },
+                    {
+                      "text": "'4'",
+                      "type": "simple",
+                    },
+                    {
+                      "text": "'5'",
+                      "type": "simple",
+                    },
+                    {
+                      "text": "'6'",
+                      "type": "simple",
+                    },
+                    {
+                      "text": "'7'",
+                      "type": "simple",
+                    },
+                    {
+                      "text": "'8'",
+                      "type": "simple",
+                    },
+                    {
+                      "text": "'9'",
+                      "type": "simple",
+                    },
+                  ],
+                },
+                "text": "AlphaNumericChar",
+                "type": "shadow",
+              },
+            ],
+          },
+        },
+        {
+          "default": undefined,
+          "description": "The format parameter.",
+          "name": "options.format?",
+          "type": {
+            "text": "'hex' | 'css' | 'binary' | 'decimal'",
+            "type": "union",
+            "types": [
+              {
+                "text": "'hex'",
+                "type": "simple",
+              },
+              {
+                "text": "'css'",
+                "type": "simple",
+              },
+              {
+                "text": "'binary'",
+                "type": "simple",
+              },
+              {
+                "text": "'decimal'",
+                "type": "simple",
+              },
+            ],
+          },
+        },
+      ],
+      "remarks": [],
+      "returns": {
+        "text": "string",
+        "type": "simple",
+      },
+      "seeAlsos": [],
+      "signature": "function stringUnionParamMethod(
+    value: 'a' | 'b',
+    options?: {
+      casing?: Casing;
+      format?: 'hex' | ColorFormat;
+      excludes?: ReadonlyArray<AlphaNumericChar>;
+    }
+  ): string;",
+      "since": "1.0.0",
+      "throws": [],
+    },
+  ],
+  "source": {
+    "column": -1,
+    "filePath": "test/scripts/apidocs/method.example.ts",
+    "line": -1,
+  },
+}
+`;

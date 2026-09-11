@@ -1,0 +1,17 @@
+export default [
+  'blå',
+  'brun',
+  'grå',
+  'grön',
+  'gul',
+  'guld',
+  'indigo',
+  'korall',
+  'lila',
+  'purpur',
+  'rosa',
+  'röd',
+  'silver',
+  'svart',
+  'vit',
+];

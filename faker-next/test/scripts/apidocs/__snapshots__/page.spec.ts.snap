@@ -1,0 +1,117 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`toRefreshFunction > should handle multiline calls 1`] = `
+"async (): Promise<unknown[]> => {
+  await enableFaker();
+  const result: unknown[] = [];
+
+  try {
+    result.push(
+      faker.number.int({
+        min: 1,
+        max: 10,
+      })
+    );
+  } catch (error: unknown) {
+    result.push(error instanceof Error ? error.name : 'Error');
+    console.log('Error in example for test:', error);
+  }
+
+  return result;
+}"
+`;
+
+exports[`toRefreshFunction > should handle multiple calls 1`] = `
+"async (): Promise<unknown[]> => {
+  await enableFaker();
+  const result: unknown[] = [];
+
+  try {
+    result.push(faker.number.int());
+  } catch (error: unknown) {
+    result.push(error instanceof Error ? error.name : 'Error');
+    console.log('Error in example for test:', error);
+  }
+
+  try {
+    result.push(faker.number.int());
+  } catch (error: unknown) {
+    result.push(error instanceof Error ? error.name : 'Error');
+    console.log('Error in example for test:', error);
+  }
+
+  return result;
+}"
+`;
+
+exports[`toRefreshFunction > should handle properties after calls 1`] = `
+"async (): Promise<unknown[]> => {
+  await enableFaker();
+  const result: unknown[] = [];
+
+  try {
+    result.push(faker.airline.airport().name);
+  } catch (error: unknown) {
+    result.push(error instanceof Error ? error.name : 'Error');
+    console.log('Error in example for test:', error);
+  }
+
+  return result;
+}"
+`;
+
+exports[`toRefreshFunction > should handle single line calls with semicolon 1`] = `
+"async (): Promise<unknown[]> => {
+  await enableFaker();
+  const result: unknown[] = [];
+
+  try {
+    result.push(faker.number.int());
+  } catch (error: unknown) {
+    result.push(error instanceof Error ? error.name : 'Error');
+    console.log('Error in example for test:', error);
+  }
+
+  return result;
+}"
+`;
+
+exports[`toRefreshFunction > should handle single line calls without semicolon 1`] = `
+"async (): Promise<unknown[]> => {
+  await enableFaker();
+  const result: unknown[] = [];
+
+  try {
+    result.push(faker.number.int());
+  } catch (error: unknown) {
+    result.push(error instanceof Error ? error.name : 'Error');
+    console.log('Error in example for test:', error);
+  }
+
+  return result;
+}"
+`;
+
+exports[`toRefreshFunction > should handle standalone functions calls 1`] = `
+"async (): Promise<unknown[]> => {
+  await enableFaker();
+  const result: unknown[] = [];
+  const { fakerCore } = faker;
+
+  try {
+    result.push(faker.defaultRefDate());
+  } catch (error: unknown) {
+    result.push(error instanceof Error ? error.name : 'Error');
+    console.log('Error in example for test:', error);
+  }
+
+  try {
+    result.push(faker.date.past());
+  } catch (error: unknown) {
+    result.push(error instanceof Error ? error.name : 'Error');
+    console.log('Error in example for test:', error);
+  }
+
+  return result;
+}"
+`;

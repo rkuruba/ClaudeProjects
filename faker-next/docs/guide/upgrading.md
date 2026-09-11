@@ -1,0 +1,137 @@
+---
+outline: [2, 3]
+---
+
+# Upgrading to v10
+
+This is the migration guide for upgrading from v9 to v10.
+
+::: info Not the version you are looking for?
+
+- [Upgrading to v9](https://v9.fakerjs.dev/guide/upgrading.html)
+- [Upgrading to v8](https://v8.fakerjs.dev/guide/upgrading.html)
+- [Upgrading to v7](https://v7.fakerjs.dev/guide/upgrading.html)
+- [Upgrading to v6](https://v6.fakerjs.dev/migration-guide-v5/)
+
+:::
+
+## General Breaking Changes
+
+### Node v18 No Longer Supported
+
+Support for Node.js v18 has been discontinued, as this version has reached its [end-of-life](https://github.com/nodejs/Release). Faker.js v10 requires a minimum of Node.js v20.19.0, v22.13.0, or v24.0.0.
+
+### CommonJS Still Supported, but Check Your Versions
+
+#### Node
+
+Technically, Faker v10 is now an ESM-only package. However, the good news is that you can still use it from your CommonJS projects without code changes, thanks to the [ESM Modules require feature](https://nodejs.org/api/modules.html#loading-ecmascript-modules-using-require) in recent versions of Node.js.
+
+If you are using Node 20 or Node 22, ensure you are using a sufficiently recent minor version—Node v20.19+ or Node v22.13+ is required.
+
+```ts
+const { faker, fakerES } = require('@faker-js/faker'); // this still works
+```
+
+If your version of Node.js is too old, you may see an error like:
+
+```
+Uncaught:
+Error [ERR_REQUIRE_ESM]: require() of ES Module <path>/faker/dist/index.js not supported.
+Instead, change the require of index.js in null to a dynamic import(), which is available in all CommonJS modules.
+```
+
+#### TypeScript
+
+As mentioned in the previous section, CJS can still be used if you use a modern module resolution strategy. This directly impacts your `tsconfig.json` setup.
+
+Previously, you were able to provide the values `"Bundler"`, `"Node10"`, `"Node16"` or `"NodeNext"` for the configuration `"moduleResulution"`. Starting in v10 of Faker, only the values `"Bundler"`, `"Node20"` or `"NodeNext"` are supported for your CJS codebase. [To use `"Node20"` your **`typescript` version must be at least `5.9.0`**](https://devblogs.microsoft.com/typescript/announcing-typescript-5-9/#support-for---module-node20).
+
+#### Jest
+
+Because [Jest](https://www.npmjs.com/package/jest) testing library uses its own module resolution system, there are known compatibility issues with Faker v10 in combination with CJS in the Jest tests.
+
+If any below solutions fails, keep using Faker v9. You can find some more details and possible workarounds in [issue #3606](https://github.com/faker-js/faker/issues/3606).
+
+##### Jest `>=30.4.2` with native ESM support
+
+Starting with Jest `v30.4.2`, the `transformIgnorePatterns` workaround below is no longer needed. Instead, enable Jest's [native ESM support](https://jestjs.io/docs/ecmascript-modules) by setting the `NODE_OPTIONS` environment variable when running your tests:
+
+```sh
+NODE_OPTIONS="--experimental-vm-modules" npx jest
+```
+
+Note that for `require`-based (CJS) test files this additionally requires Node.js `v24.9.0` or newer, as Jest relies on its synchronous `vm` module APIs to `require` ESM packages. On older Node.js versions, Jest fails with an error explaining exactly that.
+
+##### `ts-jest`
+
+When using Jest in a TypeScript project you might be already using `ts-jest` for transforming `ts` files on the fly. In such case you should apply following changes to your `jest.config.ts`:
+
+```ts
+// Transform both `ts` and `js` files. Defining only `ts` would not be enough, as we also need to transform @faker-js
+transform: {
+  '^.+\\.(t|j)s$': 'ts-jest',
+
+  // or when you pass more settings:
+  '^.+\\.(t|j)s$': [
+    'ts-jest',
+    // ... other setttings
+  ]
+}
+
+// Exclude from transformation all files in `node_modules`, except `@faker-js`
+transformIgnorePatterns: [
+  // npm
+  'node_modules/(?!@faker-js).+',
+
+  // pnpm
+  'node_modules/.pnpm/.+/node_modules/(?!@faker-js).+'
+],
+```
+
+Check more in our [playground](https://github.com/faker-js/playground/blob/main/playgrounds/jest-cjs/jest.config.js).
+
+### Removal of Deprecated Code
+
+A number of methods that were deprecated in v9 have been completely removed in v10. To prepare for the upgrade, it is recommended to first upgrade to the latest version of v9 (e.g., `npm install --save-dev faker@9`) and fix any deprecation warnings issued by your code.
+
+| Removed Method            | Replacement               |
+| ------------------------- | ------------------------- |
+| `faker.address.*`         | `faker.location.*`        |
+| `faker.name.*`            | `faker.person.*`          |
+| `faker.internet.userName` | `faker.internet.username` |
+
+Some methods do not have exact replacements, so check your code carefully.
+
+| Removed Method               | Replacement / Notes                                      |
+| ---------------------------- | -------------------------------------------------------- |
+| `faker.internet.color`       | `faker.color.rgb`                                        |
+| `faker.image.urlPlaceholder` | `faker.image.dataUri`                                    |
+| `faker.finance.maskedNumber` | See [#3201](https://github.com/faker-js/faker/pull/3201) |
+| `faker.image.avatarLegacy`   | `faker.image.avatar`                                     |
+
+### Word Methods Default Resolution Strategy
+
+The default resolution strategy for the methods in the word module changed to 'fail'.
+This means that methods in the word module will throw an error if no words for your input criteria exist.
+
+```ts
+// There are no nouns between 20-25 characters long in the word list
+faker.word.noun({ length: { min: 20, max: 25 } });
+// In v9, this would return a random noun of any length, like 'plastic'
+// In v10, this throws an error `FakerError: No words found that match the given length.`
+```
+
+Previously, the methods would return a random word, completely ignoring the the length requirements you specified.
+If you want to restore this behavior, you can provide the 'any-length' strategy to the word methods.
+
+| Method in v9                | Method in v10 with v9 behavior                        |
+| --------------------------- | ----------------------------------------------------- |
+| `faker.word.adjective()`    | `faker.word.adjective({ strategy: 'any-length' })`    |
+| `faker.word.adverb()`       | `faker.word.adverb({ strategy: 'any-length' })`       |
+| `faker.word.conjunction()`  | `faker.word.conjunction({ strategy: 'any-length' })`  |
+| `faker.word.interjection()` | `faker.word.interjection({ strategy: 'any-length' })` |
+| `faker.word.noun()`         | `faker.word.noun({ strategy: 'any-length' })`         |
+| `faker.word.preposition()`  | `faker.word.preposition({ strategy: 'any-length' })`  |
+| `faker.word.sample()`       | `faker.word.sample({ strategy: 'any-length' })`       |
+| `faker.word.verb()`         | `faker.word.verb({ strategy: 'any-length' })`         |
