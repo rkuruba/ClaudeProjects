@@ -300,3 +300,74 @@ run continuously, whether or not a browser ever connects.
 > different process, on its own clock, will eventually pick it up. The
 > request/response cycle has zero awareness of whether `worker.py` is even
 > running.
+
+## Is there a startup sequence, and does it matter?
+
+Looking at `orchestrator.py:16-38`, the `SERVICES` list has a definite
+order — but it's worth distinguishing *listed* order from *enforced*
+order, because they're not the same thing here.
+
+### The listed order
+
+```
+cache → db-primary → db-replica → queue → cdn → worker → web-1 → web-2 → load-balancer
+```
+
+This groups roughly as: **data layer** (cache, db-primary, db-replica),
+**messaging** (queue), **static assets** (cdn), **consumers** (worker),
+**application layer** (web-1, web-2), **edge** (load-balancer). It reads
+top-to-bottom like a dependency diagram — the layer that's the ultimate
+consumer of everything (load-balancer) is listed last.
+
+### But it isn't actually enforced
+
+Look at the loop in `main()` (`orchestrator.py:50-59`): each iteration
+calls `subprocess.Popen(...)` and immediately moves to the next iteration.
+`Popen` returns as soon as the OS has *launched* the process — it does not
+wait for that process to finish initializing, bind its port, or become
+ready to serve requests. So in practice all 9 processes are kicked off
+within a few milliseconds of each other; by the time `db-replica` actually
+gets around to executing its first line of Python, `load-balancer` may
+already be up and running. The list order controls *spawn order*, not
+*readiness order* — and nothing in this codebase waits for readiness at
+all.
+
+### Why that's safe here
+
+This only works because every place one service depends on another was
+written to tolerate the dependency not being up yet:
+
+- **`db_replica.py`'s `poll_primary()`** wraps its call to the primary in
+  `try/except Exception: pass` and retries every 500ms — if `db-primary`
+  isn't listening yet, it just quietly retries until it is.
+- **`worker.py`'s `poll()`** does the same thing against the queue — any
+  failure is swallowed, retried every 500ms.
+- **`load_balancer.py`'s `check_health()`** probes each backend every 5s
+  and simply marks it `unhealthy` on failure rather than crashing — it'll
+  flip back to `healthy` on the next sweep once `web-1`/`web-2` come up.
+- **`web.py`'s request handlers** don't touch any downstream service until
+  an actual HTTP request arrives (`_get_users`/`_create_user`), and a
+  request can't arrive until a human opens `http://127.0.0.1:3000` in a
+  browser — which takes vastly longer than any of these processes need to
+  start listening on a socket.
+
+So the real ordering guarantee isn't "process N is ready before process
+N+1 starts" — it's "every consumer keeps retrying until its dependency
+shows up." The list order is documentation of the *logical* dependency
+graph for a human reader, not an operational requirement for the code.
+
+> **Insight:** This is a meaningful contrast with how you'd handle startup
+> ordering in something like Docker Compose (`depends_on` with
+> `condition: service_healthy`) or Kubernetes (readiness/liveness probes
+> gating traffic). Those tools exist specifically because most real
+> services are *not* written to retry-forever against a missing dependency
+> — a typical app crashes on startup if it can't reach its database on the
+> first attempt, so the orchestration layer has to enforce ordering
+> externally. This project sidesteps that whole problem by pushing
+> resilience into the code itself: every polling loop is infinite and
+> every exception is non-fatal, so "start everything at once and let it
+> converge" is a valid strategy. That's also *exactly* the behavior you
+> want in a real production system, since processes restart independently
+> after crashes or deploys all the time — you can't guarantee ordering
+> there either, so services that can't tolerate a temporarily-missing
+> dependency are a latent outage waiting to happen.
