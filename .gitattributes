@@ -1,0 +1,19 @@
+# Store text as LF in the repo and check it out as LF on every OS,
+# overriding Git for Windows' system-wide core.autocrlf=true.
+* text=auto eol=lf
+
+# Windows-only scripts need CRLF to run correctly.
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+
+# Never touch binary content.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.woff binary
+*.woff2 binary
+*.class binary
+*.jar binary
