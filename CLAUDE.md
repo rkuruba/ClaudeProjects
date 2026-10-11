@@ -77,4 +77,4 @@ Upstream faker-js; follow `faker-next/CONTRIBUTING.md`. Key points:
 
 ## Repo hygiene
 
-Build output and dependencies are currently committed: `color-explorer/node_modules/`, `scale-to-millions-java/out/`, and `HelloWorld.class`. `scale-to-millions-java` has no `.gitignore`, so running the orchestrator rewrites tracked `.class` files. Don't stage those changes unless asked.
+Compiled Java output (`*.class`, `scale-to-millions-java/out/`) is gitignored. `color-explorer/node_modules/` is still committed, so `npm install` there can produce diffs. Don't stage those unless asked.
