@@ -1,0 +1,37 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`hacker > 42 > abbreviation 1`] = `"HTTP"`;
+
+exports[`hacker > 42 > adjective 1`] = `"haptic"`;
+
+exports[`hacker > 42 > ingverb 1`] = `"copying"`;
+
+exports[`hacker > 42 > noun 1`] = `"driver"`;
+
+exports[`hacker > 42 > phrase 1`] = `"The SQL bandwidth is down, bypass the online alarm so we can quantify the CSS circuit!"`;
+
+exports[`hacker > 42 > verb 1`] = `"generate"`;
+
+exports[`hacker > 1211 > abbreviation 1`] = `"UTF8"`;
+
+exports[`hacker > 1211 > adjective 1`] = `"virtual"`;
+
+exports[`hacker > 1211 > ingverb 1`] = `"synthesizing"`;
+
+exports[`hacker > 1211 > noun 1`] = `"system"`;
+
+exports[`hacker > 1211 > phrase 1`] = `"compressing the panel won't do anything, we need to program the optical SSL program!"`;
+
+exports[`hacker > 1211 > verb 1`] = `"synthesize"`;
+
+exports[`hacker > 1337 > abbreviation 1`] = `"FTP"`;
+
+exports[`hacker > 1337 > adjective 1`] = `"cross-platform"`;
+
+exports[`hacker > 1337 > ingverb 1`] = `"connecting"`;
+
+exports[`hacker > 1337 > noun 1`] = `"card"`;
+
+exports[`hacker > 1337 > phrase 1`] = `"The FTP circuit is down, connect the primary feed so we can calculate the JBOD program!"`;
+
+exports[`hacker > 1337 > verb 1`] = `"connect"`;

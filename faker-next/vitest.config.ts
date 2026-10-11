@@ -1,0 +1,47 @@
+import { defineConfig } from 'vitest/config';
+import { CI_PREFLIGHT } from './scripts/env';
+
+const VITEST_SEQUENCE_SEED = Date.now();
+
+// eslint-disable-next-line unicorn/no-top-level-side-effects
+console.log('VITEST_SEQUENCE_SEED', VITEST_SEQUENCE_SEED);
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  test: {
+    setupFiles: ['test/setup.ts'],
+    include: ['test/**/*.spec.ts', 'test/**/*.spec.cts'],
+    exclude: ['test/integration/**/*.spec.ts'],
+    coverage: {
+      provider: 'v8',
+      reporter: ['clover', 'cobertura', 'lcov', 'text'],
+      include: ['src'],
+    },
+    reporters: CI_PREFLIGHT
+      ? ['default', 'github-actions']
+      : [['default', { summary: false }]],
+    sequence: {
+      seed: VITEST_SEQUENCE_SEED,
+      shuffle: true,
+    },
+    onStackTrace(_, { file }) {
+      return (
+        !file.includes('/src/internal/locale-proxy') &&
+        !file.includes('/test/support/')
+      );
+    },
+    typecheck: {
+      enabled: true,
+      include: ['test/**/*.spec-d.ts'],
+    },
+    onConsoleLog(log, type) {
+      if (
+        type === 'stderr' &&
+        log.includes('[@faker-js/faker]:') &&
+        log.includes('deprecated')
+      ) {
+        return false;
+      }
+    },
+  },
+});

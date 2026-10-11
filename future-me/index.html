@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Future Me — Letters to Tomorrow</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="bg-orbs" aria-hidden="true">
+    <span class="orb orb-1"></span>
+    <span class="orb orb-2"></span>
+    <span class="orb orb-3"></span>
+  </div>
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-icon">⏳</span>
+      <span class="brand-name">Future Me</span>
+    </div>
+    <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle dark and light mode">
+      <span class="toggle-icon sun">☀️</span>
+      <span class="toggle-icon moon">🌙</span>
+    </button>
+  </header>
+
+  <main class="page">
+
+    <section class="hero">
+      <h1>Write a letter your <span class="gradient-text">future self</span> will open.</h1>
+      <p class="hero-sub">Capture how you feel right now. Seal it. Choose a date. Let time do the rest.</p>
+    </section>
+
+    <section class="quote-banner" aria-live="polite">
+      <span class="quote-mark">“</span>
+      <p id="quoteText" class="quote-text"></p>
+    </section>
+
+    <section class="layout">
+
+      <div class="card form-card">
+        <h2 class="card-title">Write your message</h2>
+        <form id="futureForm" class="future-form" novalidate>
+
+          <div class="field">
+            <label for="nameInput">Your name</label>
+            <input type="text" id="nameInput" name="name" placeholder="e.g. Alex" required maxlength="40" />
+          </div>
+
+          <div class="field">
+            <label for="messageInput">Message to your future self</label>
+            <textarea id="messageInput" name="message" rows="5" placeholder="Dear future me..." required maxlength="1000"></textarea>
+            <span class="char-count"><span id="charCount">0</span>/1000</span>
+          </div>
+
+          <div class="field">
+            <label for="dateInput">Reveal on</label>
+            <input type="datetime-local" id="dateInput" name="date" required />
+          </div>
+
+          <button type="submit" class="btn-primary">
+            <span>Seal &amp; Send to the Future</span>
+            <span class="btn-icon">✉️</span>
+          </button>
+
+          <p id="formError" class="form-error" role="alert"></p>
+        </form>
+      </div>
+
+      <div class="dashboard">
+        <div class="dashboard-header">
+          <h2 class="card-title">Your time capsules</h2>
+          <span id="capsuleCount" class="capsule-count">0</span>
+        </div>
+
+        <div id="emptyState" class="empty-state">
+          <span class="empty-icon">📭</span>
+          <p>No messages yet. Write one and it'll show up here, counting down until it unlocks.</p>
+        </div>
+
+        <div id="messagesList" class="messages-list"></div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>Made with care for the person you're becoming.</p>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

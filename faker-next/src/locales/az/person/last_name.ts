@@ -1,0 +1,26 @@
+export default {
+  female: [
+    'Abdullayeva',
+    'Qasımova',
+    'Rəşidova',
+    'Seyidova',
+    'Soltanova',
+    'Tahirova',
+    'Vəsiyeva',
+    'Əfəndiyeva',
+    'Əliyeva',
+    'Ələkbərova',
+  ],
+  male: [
+    'Məmmədov',
+    'Nəzərov',
+    'Quliyev',
+    'Rəhimov',
+    'Soltanov',
+    'Vəliyev',
+    'Xəlilov',
+    'Əhmədov',
+    'Əliyev',
+    'Ələkbərov',
+  ],
+};

@@ -1,0 +1,210 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - next
+  pull_request:
+  merge_group:
+
+permissions:
+  contents: read # to fetch code (actions/checkout)
+
+jobs:
+  unit-test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        node_version: [20, 22, 24]
+      fail-fast: false
+    timeout-minutes: 10
+
+    name: 'Build & Unit Test: node-${{ matrix.node_version }}, ${{ matrix.os }}'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          # Required for docs/versions tests
+          fetch-depth: 0
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@0ebf47130e4866e96fce0953f49152a61190b271 # v6.0.9
+
+      - name: Set node version to ${{ matrix.node_version }}
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
+        with:
+          node-version: ${{ matrix.node_version }}
+          cache: 'pnpm'
+
+      - name: Install deps
+        run: pnpm install
+
+      - name: Build
+        run: pnpm run build
+
+      - name: Test
+        run: pnpm run test
+
+  timezone-test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node_version: [24]
+      fail-fast: false
+    env:
+      LANG: zh_SG.UTF-8
+      TZ: Asia/Singapore
+    timeout-minutes: 10
+
+    name: 'Timezone Test: node-${{ matrix.node_version }}, ${{ matrix.os }}'
+    steps:
+      - name: Set system LANG=zh_SG.UTF-8
+        run: |
+          sudo locale-gen zh_SG.UTF-8
+          sudo update-locale LANG=zh_SG.UTF-8
+
+      - name: Check date
+        run: date
+
+      - name: Checkout
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          # Required for docs/versions tests
+          fetch-depth: 0
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@0ebf47130e4866e96fce0953f49152a61190b271 # v6.0.9
+
+      - name: Set node version to ${{ matrix.node_version }}
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
+        with:
+          node-version: ${{ matrix.node_version }}
+          cache: 'pnpm'
+
+      - name: Install deps
+        run: pnpm install
+
+      - name: Build
+        run: pnpm run build
+
+      - name: Test
+        run: pnpm run test
+
+  e2e-test:
+    runs-on: ubuntu-latest
+    container:
+      image: cypress/browsers:26.0.0@sha256:87a2e90f7d8c6531e6d834ad6354b9d59cf6eabe72022bd68a53c52ed5a247e0
+      options: --user 1001
+    timeout-minutes: 10
+    name: 'E2E Doc Test: node-24, ubuntu-latest'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@0ebf47130e4866e96fce0953f49152a61190b271 # v6.0.9
+
+      - name: Install deps
+        run: pnpm install
+
+      - name: Build docs
+        run: pnpm run docs:build:ci
+
+      - name: Download Cypress
+        run: pnpm run docs:test:e2e:install
+
+      - id: e2e
+        name: Run e2e
+        run: pnpm run docs:test:e2e:run
+
+  lint:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    name: 'Lint: node-24, ubuntu-latest'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          fetch-depth: 0
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@0ebf47130e4866e96fce0953f49152a61190b271 # v6.0.9
+
+      - name: Set node version to 24
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
+        with:
+          node-version: 24.18.0
+          cache: 'pnpm'
+
+      - name: Install deps
+        run: pnpm install
+
+      - name: Lint
+        run: pnpm run lint
+
+      - name: Check formatting
+        run: pnpm prettier --check .
+
+  ts-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    name: 'TS-Check: node-24, ubuntu-latest'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          fetch-depth: 0
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@0ebf47130e4866e96fce0953f49152a61190b271 # v6.0.9
+
+      - name: Set node version to 24
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
+        with:
+          node-version: 24.18.0
+          cache: 'pnpm'
+
+      - name: Install deps
+        run: pnpm install
+
+      - name: Build types
+        run: pnpm run build
+
+      - name: Check scripts
+        run: pnpm run ts-check
+
+  codecov:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    name: 'Codecov: node-24, ubuntu-latest'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          fetch-depth: 0
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@0ebf47130e4866e96fce0953f49152a61190b271 # v6.0.9
+
+      - name: Set node version to 24
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
+        with:
+          node-version: 24.18.0
+          cache: 'pnpm'
+
+      - name: Install deps
+        run: pnpm install
+
+      - name: Build
+        run: pnpm run build
+
+      - name: Generate coverage report
+        run: pnpm vitest run --coverage
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@fb8b3582c8e4def4969c97caa2f19720cb33a72f # v7.0.0
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          fail_ci_if_error: true

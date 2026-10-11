@@ -1,0 +1,18 @@
+export default [
+  'backing up',
+  'bypassing',
+  'calculating',
+  'compressing',
+  'connecting',
+  'copying',
+  'generating',
+  'hacking',
+  'indexing',
+  'navigating',
+  'overriding',
+  'parsing',
+  'programming',
+  'quantifying',
+  'synthesizing',
+  'transmitting',
+];

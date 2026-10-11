@@ -1,0 +1,154 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`airline > 42 > aircraftType 1`] = `"regional"`;
+
+exports[`airline > 42 > airline 1`] = `
+{
+  "iataCode": "EY",
+  "name": "Etihad Airways",
+}
+`;
+
+exports[`airline > 42 > airplane 1`] = `
+{
+  "iataTypeCode": "739",
+  "name": "Boeing 737-900",
+}
+`;
+
+exports[`airline > 42 > airport 1`] = `
+{
+  "iataCode": "ATL",
+  "name": "Hartsfield-Jackson Atlanta International Airport",
+}
+`;
+
+exports[`airline > 42 > flightNumber > flightNumber addLeadingZeros 1`] = `"0097"`;
+
+exports[`airline > 42 > flightNumber > flightNumber length 2 to 4 1`] = `"975"`;
+
+exports[`airline > 42 > flightNumber > flightNumber length 2 to 4 and addLeadingZeros 1`] = `"0975"`;
+
+exports[`airline > 42 > flightNumber > flightNumber length 3 1`] = `"497"`;
+
+exports[`airline > 42 > flightNumber > flightNumber length 3 and addLeadingZeros 1`] = `"0497"`;
+
+exports[`airline > 42 > flightNumber > noArgs 1`] = `"97"`;
+
+exports[`airline > 42 > recordLocator > allowNumerics 1`] = `"DYRM66"`;
+
+exports[`airline > 42 > recordLocator > allowVisuallySimilarCharacters 1`] = `"JYTPEE"`;
+
+exports[`airline > 42 > recordLocator > both allowNumerics and allowVisuallySimilarCharacters 1`] = `"DYQL55"`;
+
+exports[`airline > 42 > recordLocator > noArgs 1`] = `"JYTQDD"`;
+
+exports[`airline > 42 > seat > aircraftType narrowbody 1`] = `"14F"`;
+
+exports[`airline > 42 > seat > aircraftType regional 1`] = `"8D"`;
+
+exports[`airline > 42 > seat > aircraftType widebody 1`] = `"23K"`;
+
+exports[`airline > 42 > seat > noArgs 1`] = `"14F"`;
+
+exports[`airline > 1211 > aircraftType 1`] = `"widebody"`;
+
+exports[`airline > 1211 > airline 1`] = `
+{
+  "iataCode": "VJ",
+  "name": "VietJet Air",
+}
+`;
+
+exports[`airline > 1211 > airplane 1`] = `
+{
+  "iataTypeCode": "M81",
+  "name": "McDonnell Douglas MD81",
+}
+`;
+
+exports[`airline > 1211 > airport 1`] = `
+{
+  "iataCode": "TUN",
+  "name": "Tunis Carthage International Airport",
+}
+`;
+
+exports[`airline > 1211 > flightNumber > flightNumber addLeadingZeros 1`] = `"9296"`;
+
+exports[`airline > 1211 > flightNumber > flightNumber length 2 to 4 1`] = `"9296"`;
+
+exports[`airline > 1211 > flightNumber > flightNumber length 2 to 4 and addLeadingZeros 1`] = `"9296"`;
+
+exports[`airline > 1211 > flightNumber > flightNumber length 3 1`] = `"982"`;
+
+exports[`airline > 1211 > flightNumber > flightNumber length 3 and addLeadingZeros 1`] = `"0982"`;
+
+exports[`airline > 1211 > flightNumber > noArgs 1`] = `"9296"`;
+
+exports[`airline > 1211 > recordLocator > allowNumerics 1`] = `"XW8ZPQ"`;
+
+exports[`airline > 1211 > recordLocator > allowVisuallySimilarCharacters 1`] = `"YXFZRR"`;
+
+exports[`airline > 1211 > recordLocator > both allowNumerics and allowVisuallySimilarCharacters 1`] = `"XW8ZOO"`;
+
+exports[`airline > 1211 > recordLocator > noArgs 1`] = `"YXFZSS"`;
+
+exports[`airline > 1211 > seat > aircraftType narrowbody 1`] = `"33F"`;
+
+exports[`airline > 1211 > seat > aircraftType regional 1`] = `"19D"`;
+
+exports[`airline > 1211 > seat > aircraftType widebody 1`] = `"56J"`;
+
+exports[`airline > 1211 > seat > noArgs 1`] = `"33F"`;
+
+exports[`airline > 1337 > aircraftType 1`] = `"narrowbody"`;
+
+exports[`airline > 1337 > airline 1`] = `
+{
+  "iataCode": "5J",
+  "name": "Cebu Pacific Air",
+}
+`;
+
+exports[`airline > 1337 > airplane 1`] = `
+{
+  "iataTypeCode": "717",
+  "name": "Boeing 717",
+}
+`;
+
+exports[`airline > 1337 > airport 1`] = `
+{
+  "iataCode": "DEN",
+  "name": "Denver International Airport",
+}
+`;
+
+exports[`airline > 1337 > flightNumber > flightNumber addLeadingZeros 1`] = `"0022"`;
+
+exports[`airline > 1337 > flightNumber > flightNumber length 2 to 4 1`] = `"22"`;
+
+exports[`airline > 1337 > flightNumber > flightNumber length 2 to 4 and addLeadingZeros 1`] = `"0022"`;
+
+exports[`airline > 1337 > flightNumber > flightNumber length 3 1`] = `"312"`;
+
+exports[`airline > 1337 > flightNumber > flightNumber length 3 and addLeadingZeros 1`] = `"0312"`;
+
+exports[`airline > 1337 > flightNumber > noArgs 1`] = `"22"`;
+
+exports[`airline > 1337 > recordLocator > allowNumerics 1`] = `"A6AGBJ"`;
+
+exports[`airline > 1337 > recordLocator > allowVisuallySimilarCharacters 1`] = `"GEHLIN"`;
+
+exports[`airline > 1337 > recordLocator > both allowNumerics and allowVisuallySimilarCharacters 1`] = `"95AGBI"`;
+
+exports[`airline > 1337 > recordLocator > noArgs 1`] = `"GDGMHN"`;
+
+exports[`airline > 1337 > seat > aircraftType narrowbody 1`] = `"10A"`;
+
+exports[`airline > 1337 > seat > aircraftType regional 1`] = `"6A"`;
+
+exports[`airline > 1337 > seat > aircraftType widebody 1`] = `"16B"`;
+
+exports[`airline > 1337 > seat > noArgs 1`] = `"10A"`;

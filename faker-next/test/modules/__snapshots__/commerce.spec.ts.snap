@@ -1,0 +1,139 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`commerce > 42 > department 1`] = `"Garden"`;
+
+exports[`commerce > 42 > isbn > noArgs 1`] = `"978-0-9751108-6-7"`;
+
+exports[`commerce > 42 > isbn > with space separators 1`] = `"978 0 9751108 6 7"`;
+
+exports[`commerce > 42 > isbn > with variant 10 1`] = `"0-9751108-6-1"`;
+
+exports[`commerce > 42 > isbn > with variant 10 and space separators 1`] = `"0 9751108 6 1"`;
+
+exports[`commerce > 42 > isbn > with variant 13 1`] = `"978-0-9751108-6-7"`;
+
+exports[`commerce > 42 > price > noArgs 1`] = `"375.15"`;
+
+exports[`commerce > 42 > price > with float min and float max option 1`] = `"1.05"`;
+
+exports[`commerce > 42 > price > with max option 1`] = `"501.35"`;
+
+exports[`commerce > 42 > price > with min and max and decimals and symbol option 1`] = `"$68.7275"`;
+
+exports[`commerce > 42 > price > with min and max and decimals option 1`] = `"68.7275"`;
+
+exports[`commerce > 42 > price > with min and max option 1`] = `"68.75"`;
+
+exports[`commerce > 42 > price > with min option 1`] = `"400.85"`;
+
+exports[`commerce > 42 > product 1`] = `"Computer"`;
+
+exports[`commerce > 42 > productAdjective 1`] = `"Handcrafted"`;
+
+exports[`commerce > 42 > productDescription 1`] = `"New salmon Pants with ergonomic design for crushing comfort"`;
+
+exports[`commerce > 42 > productMaterial 1`] = `"Cotton"`;
+
+exports[`commerce > 42 > productName 1`] = `"Handcrafted Wooden Sausages"`;
+
+exports[`commerce > 42 > upc > noArgs 1`] = `"397511086709"`;
+
+exports[`commerce > 42 > upc > with 5 digit prefix 1`] = `"012343975112"`;
+
+exports[`commerce > 42 > upc > with 11 digit prefix 1`] = `"012345678905"`;
+
+exports[`commerce > 42 > upc > with empty prefix 1`] = `"397511086709"`;
+
+exports[`commerce > 42 > upc > with single digit prefix 1`] = `"039751108673"`;
+
+exports[`commerce > 1211 > department 1`] = `"Tools"`;
+
+exports[`commerce > 1211 > isbn > noArgs 1`] = `"978-1-82966-736-0"`;
+
+exports[`commerce > 1211 > isbn > with space separators 1`] = `"978 1 82966 736 0"`;
+
+exports[`commerce > 1211 > isbn > with variant 10 1`] = `"1-82966-736-X"`;
+
+exports[`commerce > 1211 > isbn > with variant 10 and space separators 1`] = `"1 82966 736 X"`;
+
+exports[`commerce > 1211 > isbn > with variant 13 1`] = `"978-1-82966-736-0"`;
+
+exports[`commerce > 1211 > price > noArgs 1`] = `"928.69"`;
+
+exports[`commerce > 1211 > price > with float min and float max option 1`] = `"1.10"`;
+
+exports[`commerce > 1211 > price > with max option 1`] = `"1241.59"`;
+
+exports[`commerce > 1211 > price > with min and max and decimals and symbol option 1`] = `"$96.4269"`;
+
+exports[`commerce > 1211 > price > with min and max and decimals option 1`] = `"96.4269"`;
+
+exports[`commerce > 1211 > price > with min and max option 1`] = `"96.49"`;
+
+exports[`commerce > 1211 > price > with min option 1`] = `"931.59"`;
+
+exports[`commerce > 1211 > product 1`] = `"Towels"`;
+
+exports[`commerce > 1211 > productAdjective 1`] = `"Tasty"`;
+
+exports[`commerce > 1211 > productDescription 1`] = `"Soft Cheese designed with Wooden for right performance"`;
+
+exports[`commerce > 1211 > productMaterial 1`] = `"Steel"`;
+
+exports[`commerce > 1211 > productName 1`] = `"Tasty Steel Cheese"`;
+
+exports[`commerce > 1211 > upc > noArgs 1`] = `"982966736875"`;
+
+exports[`commerce > 1211 > upc > with 5 digit prefix 1`] = `"012349829662"`;
+
+exports[`commerce > 1211 > upc > with 11 digit prefix 1`] = `"012345678905"`;
+
+exports[`commerce > 1211 > upc > with empty prefix 1`] = `"982966736875"`;
+
+exports[`commerce > 1211 > upc > with single digit prefix 1`] = `"098296673688"`;
+
+exports[`commerce > 1337 > department 1`] = `"Computers"`;
+
+exports[`commerce > 1337 > isbn > noArgs 1`] = `"978-0-12-435297-1"`;
+
+exports[`commerce > 1337 > isbn > with space separators 1`] = `"978 0 12 435297 1"`;
+
+exports[`commerce > 1337 > isbn > with variant 10 1`] = `"0-12-435297-9"`;
+
+exports[`commerce > 1337 > isbn > with variant 10 and space separators 1`] = `"0 12 435297 9"`;
+
+exports[`commerce > 1337 > isbn > with variant 13 1`] = `"978-0-12-435297-1"`;
+
+exports[`commerce > 1337 > price > noArgs 1`] = `"262.79"`;
+
+exports[`commerce > 1337 > price > with float min and float max option 1`] = `"1.09"`;
+
+exports[`commerce > 1337 > price > with max option 1`] = `"351.09"`;
+
+exports[`commerce > 1337 > price > with min and max and decimals and symbol option 1`] = `"$63.1019"`;
+
+exports[`commerce > 1337 > price > with min and max and decimals option 1`] = `"63.1019"`;
+
+exports[`commerce > 1337 > price > with min and max option 1`] = `"63.19"`;
+
+exports[`commerce > 1337 > price > with min option 1`] = `"293.09"`;
+
+exports[`commerce > 1337 > product 1`] = `"Chicken"`;
+
+exports[`commerce > 1337 > productAdjective 1`] = `"Frozen"`;
+
+exports[`commerce > 1337 > productDescription 1`] = `"Innovative Car featuring lawful technology and Concrete construction"`;
+
+exports[`commerce > 1337 > productMaterial 1`] = `"Ceramic"`;
+
+exports[`commerce > 1337 > productName 1`] = `"Frozen Bronze Chicken"`;
+
+exports[`commerce > 1337 > upc > noArgs 1`] = `"212435297133"`;
+
+exports[`commerce > 1337 > upc > with 5 digit prefix 1`] = `"012342124351"`;
+
+exports[`commerce > 1337 > upc > with 11 digit prefix 1`] = `"012345678905"`;
+
+exports[`commerce > 1337 > upc > with empty prefix 1`] = `"212435297133"`;
+
+exports[`commerce > 1337 > upc > with single digit prefix 1`] = `"021243529714"`;

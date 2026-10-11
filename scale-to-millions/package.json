@@ -1,0 +1,13 @@
+{
+  "name": "scale-to-millions",
+  "version": "1.0.0",
+  "description": "A working replica of the architecture from 'System Design Interview' (Alex Xu), Chapter 1: Scale From Zero To Millions of Users",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "start": "node orchestrator.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}

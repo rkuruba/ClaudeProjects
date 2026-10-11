@@ -1,0 +1,16 @@
+export default [
+  'avatar',
+  'category',
+  'comment',
+  'createdAt',
+  'email',
+  'group',
+  'id',
+  'name',
+  'password',
+  'phone',
+  'status',
+  'title',
+  'token',
+  'updatedAt',
+];

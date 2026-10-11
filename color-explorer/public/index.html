@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Color Palette Explorer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+    <span id="theme-icon">🌙</span>
+  </button>
+
+  <header class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">Color Palette Explorer</h1>
+      <p class="hero-subtitle">Discover, click, and copy 20 handpicked premium colors</p>
+
+      <div class="search-wrap">
+        <span class="search-icon">🔍</span>
+        <input
+          id="search-input"
+          type="text"
+          class="search-input"
+          placeholder="Search by name or hex code..."
+          autocomplete="off"
+        />
+      </div>
+    </div>
+  </header>
+
+  <main class="content">
+    <section class="recent-section" id="recent-section">
+      <h2 class="section-title">Recently Viewed</h2>
+      <div id="recent-list" class="recent-list">
+        <p class="recent-empty" id="recent-empty">No colors clicked yet — tap a card below to get started.</p>
+      </div>
+    </section>
+
+    <section class="grid-section">
+      <div id="color-grid" class="color-grid"></div>
+      <p id="no-results" class="no-results hidden">No colors match your search.</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Crafted with care · Color Palette Explorer</p>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="/js/app.js" defer></script>
+</body>
+</html>
