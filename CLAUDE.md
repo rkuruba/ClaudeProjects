@@ -77,4 +77,4 @@ Upstream faker-js; follow `faker-next/CONTRIBUTING.md`. Key points:
 
 ## Repo hygiene
 
-Compiled Java output (`*.class`, `scale-to-millions-java/out/`) is gitignored. `color-explorer/node_modules/` is still committed, so `npm install` there can produce diffs. Don't stage those unless asked.
+Compiled Java output (`*.class`, `scale-to-millions-java/out/`) and every project's `node_modules/` are gitignored. Run `npm install` / `pnpm install` before starting a Node project in a fresh clone.
