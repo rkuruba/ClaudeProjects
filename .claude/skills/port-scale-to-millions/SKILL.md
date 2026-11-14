@@ -1,6 +1,6 @@
 ---
 name: port-scale-to-millions
-description: Apply a change to the scale-to-millions system across all three implementations (Node in scale-to-millions/, Python in scale-to-millions-py/, Java in scale-to-millions-java/) so they stay behaviorally identical, then run each one to verify. Use whenever the user asks to add, change, fix, or remove a service, endpoint, env var, port, or behavior in any scale-to-millions variant, or asks to sync/port a change between them.
+description: Apply a change to the scale-to-millions system across all three implementations (Node in system-design/scale-to-millions/, Python in system-design/scale-to-millions-py/, Java in system-design/scale-to-millions-java/) so they stay behaviorally identical, then run each one to verify. Use whenever the user asks to add, change, fix, or remove a service, endpoint, env var, port, or behavior in any scale-to-millions variant, or asks to sync/port a change between them.
 ---
 
 # Port a change across scale-to-millions variants
@@ -11,7 +11,7 @@ The three directories are ports of one system (Node → Python → Java). They m
 
 Service file mapping:
 
-| Service | Node (`scale-to-millions/`) | Python (`scale-to-millions-py/`) | Java (`scale-to-millions-java/`) |
+| Service | Node (`system-design/scale-to-millions/`) | Python (`system-design/scale-to-millions-py/`) | Java (`system-design/scale-to-millions-java/`) |
 |---|---|---|---|
 | orchestrator | `orchestrator.js` | `orchestrator.py` | `Orchestrator.java` |
 | shared helpers | — (Express + `fetch`) | `services/http_util.py` | `services/HttpUtil.java`, `services/Json.java` |
@@ -59,7 +59,7 @@ Keep the explanations equivalent across variants, just at each file's own densit
 ## 4. Update docs
 
 - If behavior, ports, or routes change, update the README tables in the affected variants.
-- `scale-to-millions-py/ARCHITECTURE.md` cites **Python line numbers** (e.g. `web.py:57`, `orchestrator.py:16-38`). After editing Python files, re-check every `file.py:N` reference in that doc and fix any that shifted.
+- `system-design/scale-to-millions-py/ARCHITECTURE.md` cites **Python line numbers** (e.g. `web.py:57`, `orchestrator.py:16-38`). After editing Python files, re-check every `file.py:N` reference in that doc and fix any that shifted.
 - If a variant now does something differently for a language-specific reason, add a bullet to that README's "What changed going from …" section.
 
 ## 5. Verify each variant end to end
@@ -69,9 +69,9 @@ All three bind the same ports, so run them **one at a time** and make sure the p
 Start each variant from its own directory as a background task:
 
 ```bash
-cd scale-to-millions && npm install && npm start
-cd scale-to-millions-py && python orchestrator.py
-cd scale-to-millions-java && java Orchestrator.java   # must run from this directory; compiles into out/ first
+cd system-design/scale-to-millions && npm install && npm start
+cd system-design/scale-to-millions-py && python orchestrator.py
+cd system-design/scale-to-millions-java && java Orchestrator.java   # must run from this directory; compiles into out/ first
 ```
 
 Give it a few seconds (Java needs longer because of `javac`), then exercise it:

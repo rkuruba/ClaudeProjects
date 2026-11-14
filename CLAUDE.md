@@ -8,9 +8,9 @@ This repo is a workspace of **independent, unrelated projects** sharing one git 
 
 | Directory | What it is | Stack |
 |---|---|---|
-| `scale-to-millions/` | Working replica of *System Design Interview* ch. 1 (LB, stateless web ×2, primary/replica DB, cache, CDN, queue+worker) as 9 real processes over localhost HTTP | Node (ESM) + Express |
-| `scale-to-millions-py/` | Python port of the above | Python 3.9+ stdlib only |
-| `scale-to-millions-java/` | Java port of the Python port | JDK 17+ stdlib only, no Maven/Gradle |
+| `system-design/scale-to-millions/` | Working replica of *System Design Interview* ch. 1 (LB, stateless web ×2, primary/replica DB, cache, CDN, queue+worker) as 9 real processes over localhost HTTP | Node (ESM) + Express |
+| `system-design/scale-to-millions-py/` | Python port of the above | Python 3.9+ stdlib only |
+| `system-design/scale-to-millions-java/` | Java port of the Python port | JDK 17+ stdlib only, no Maven/Gradle |
 | `color-explorer/` | Color palette explorer: Express API + static frontend | Node (CommonJS) + Express |
 | `future-me/` | Static "letter to your future self" page, localStorage only | Vanilla HTML/CSS/JS, no build |
 | `faker-next/` | Vendored copy of the upstream `@faker-js/faker` library | TypeScript, pnpm, vitest |
@@ -20,13 +20,13 @@ This repo is a workspace of **independent, unrelated projects** sharing one git 
 
 ```bash
 # scale-to-millions (Node) — open http://localhost:3000
-cd scale-to-millions && npm install && npm start
+cd system-design/scale-to-millions && npm install && npm start
 
 # scale-to-millions-py — open http://127.0.0.1:3000
-cd scale-to-millions-py && python orchestrator.py
+cd system-design/scale-to-millions-py && python orchestrator.py
 
 # scale-to-millions-java — compiles services/ into out/ via javac itself, then spawns them
-cd scale-to-millions-java && java Orchestrator.java
+cd system-design/scale-to-millions-java && java Orchestrator.java
 
 # color-explorer — PORT env var overrides the default 3000
 cd color-explorer && npm start
@@ -56,7 +56,7 @@ pnpm run preflight                    # generate + format + lint + build + snaps
 ### scale-to-millions (all three variants)
 
 - The three directories implement **the same system**: same 9 processes, same ports (LB 3000, web-1/web-2 3001/3002, cache 4000, db-primary 5000, db-replica 5001, queue 6060, CDN 7000, plus a portless worker), same env-var wiring, same request flow. Lineage is Node → Python → Java; each README has a "what changed" section explaining language-specific differences. Behavioral changes usually belong in all three.
-- `scale-to-millions-py/ARCHITECTURE.md` is the canonical walkthrough of the invocation graph and request flow, and also applies to the Java port.
+- `system-design/scale-to-millions-py/ARCHITECTURE.md` is the canonical walkthrough of the invocation graph and request flow, and also applies to the Java port.
 - The orchestrator spawns every service as a separate OS process wired together by env vars (`CACHE_URL`, `PRIMARY_URL`, `REPLICA_URL`, `QUEUE_URL`, `CDN_URL`, ...). Services never import each other; in Python/Java they share only an HTTP/JSON helper (`http_util.py` / `HttpUtil.java` + `Json.java`).
 - Writes go web → primary (appends a WAL entry) → cache key invalidated → job published to queue. Reads go web → cache → (on miss) **replica, never the primary**. The replica polls the primary's `/wal?since=N` and applies entries after a deliberate `REPLICATION_LAG_MS` (default 1200 ms), so stale reads right after a write are intended behavior, not a bug.
 - **Startup order is not enforced.** Services launch near-simultaneously; correctness relies on every consumer (replica poller, worker, LB health check) retrying forever and swallowing connection errors. Keep new dependencies tolerant of the dependency being down.
@@ -77,4 +77,4 @@ Upstream faker-js; follow `faker-next/CONTRIBUTING.md`. Key points:
 
 ## Repo hygiene
 
-Compiled Java output (`*.class`, `scale-to-millions-java/out/`) and every project's `node_modules/` are gitignored. Run `npm install` / `pnpm install` before starting a Node project in a fresh clone.
+Compiled Java output (`*.class`, `system-design/scale-to-millions-java/out/`) and every project's `node_modules/` are gitignored. Run `npm install` / `pnpm install` before starting a Node project in a fresh clone.

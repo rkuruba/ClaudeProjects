@@ -92,6 +92,14 @@ public class LoadBalancer {
     }
 
     private static void proxy(HttpExchange exchange) throws IOException {
+        // Browsers request /favicon.ico on their own; answer 204 here so it neither 404s
+        // in the console nor consumes a round-robin slot / needs a healthy backend.
+        if (exchange.getRequestURI().getPath().equals("/favicon.ico")) {
+            exchange.sendResponseHeaders(204, -1);
+            exchange.close();
+            return;
+        }
+
         Backend backend = pickBackend();
         if (backend == null) {
             HttpUtil.sendJson(exchange, 503, Map.of("error", "No healthy backends available"));

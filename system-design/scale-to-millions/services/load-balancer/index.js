@@ -32,6 +32,14 @@ setInterval(checkHealth, 5000);
 checkHealth();
 
 const server = http.createServer((clientReq, clientRes) => {
+  // Browsers request /favicon.ico on their own; answer 204 here so it neither 404s
+  // in the console nor consumes a round-robin slot / needs a healthy backend.
+  if (clientReq.url === '/favicon.ico') {
+    clientRes.writeHead(204);
+    clientRes.end();
+    return;
+  }
+
   const backend = pickBackend();
   if (!backend) {
     clientRes.writeHead(503, { 'Content-Type': 'application/json' });

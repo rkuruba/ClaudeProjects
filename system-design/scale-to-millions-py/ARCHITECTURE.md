@@ -218,7 +218,7 @@ The diagrams above show *what* talks to *what*; this section walks through
    (`services/worker.py:32-34`) polling the queue — also independent of any
    user request.
 4. The moment `load-balancer` starts, it kicks off `check_health()` on a
-   background thread (`services/load_balancer.py:89`) — polling `web-1`
+   background thread (`services/load_balancer.py:95`) — polling `web-1`
    and `web-2` every 5s.
 
 These three loops (steps 2-4) are the dotted arrows in the diagram — they

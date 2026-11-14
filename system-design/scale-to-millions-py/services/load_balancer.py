@@ -50,6 +50,12 @@ class Handler(BaseHTTPRequestHandler):  # handles one HTTP request; a new instan
         pass  # do nothing - keeps orchestrator.py's colored log output clean
 
     def _proxy(self):  # forwards this request verbatim to a chosen backend and streams its response back
+        if self.path == '/favicon.ico':  # browsers request this on their own; answer it here instead of proxying
+            self.send_response(204)  # 204 No Content: "no favicon", and no 404 in the browser console
+            self.send_header('Content-Length', '0')  # explicit empty body so the connection can be reused cleanly
+            self.end_headers()  # blank line marking the end of headers
+            return  # skip pick_backend() so this doesn't consume a round-robin slot or need a healthy backend
+
         backend = pick_backend()  # round-robin selection among currently healthy backends
         if backend is None:  # every backend is down
             return send_json(self, 503, {'error': 'No healthy backends available'})  # 503 Service Unavailable: no one to route to

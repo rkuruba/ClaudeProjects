@@ -1,0 +1,19 @@
+[
+  {"name": "per-ip-token-bucket", "algorithm": "token_bucket",
+   "params": {"capacity": 10, "refill_rate": 2}, "key_by": "ip", "path_prefix": "/"},
+
+  {"name": "login-per-ip", "algorithm": "sliding_window_log",
+   "params": {"limit": 5, "window": 60}, "key_by": "ip", "path_prefix": "/login"},
+
+  {"name": "posts-per-user", "algorithm": "sliding_window_counter",
+   "params": {"limit": 3, "window": 60}, "key_by": "user_id", "path_prefix": "/posts"},
+
+  {"name": "api-key-fixed", "algorithm": "fixed_window",
+   "params": {"limit": 100, "window": 60}, "key_by": "api_key", "path_prefix": "/api"},
+
+  {"name": "checkout-smooth", "algorithm": "leaking_bucket",
+   "params": {"capacity": 5, "outflow_rate": 1}, "key_by": "user_id", "path_prefix": "/checkout"},
+
+  {"name": "global-soft", "algorithm": "fixed_window",
+   "params": {"limit": 1000, "window": 1}, "key_by": "global", "path_prefix": "/", "hard": false}
+]
