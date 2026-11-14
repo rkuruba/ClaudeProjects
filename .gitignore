@@ -1,2 +1,5 @@
 # Compiled Java bytecode (e.g. from javac HelloWorld.java)
 *.class
+
+# Python bytecode cache
+__pycache__/
